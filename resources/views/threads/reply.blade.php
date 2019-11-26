@@ -4,7 +4,7 @@
 
 
     <div class="card-body">
-{{nl2br($reply->body)}}
+{{nl2br(e($reply->body))}}
 
     </div>
 </div>
