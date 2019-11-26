@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d6c89fda-7596-4e50-b142-3eedc9fd4b1b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
-    </list>
+    <list default="true" id="d6c89fda-7596-4e50-b142-3eedc9fd4b1b" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -252,7 +249,7 @@
       <workItem from="1573882079528" duration="4350000" />
       <workItem from="1573938763543" duration="18296000" />
       <workItem from="1574524232840" duration="4937000" />
-      <workItem from="1574717511020" duration="5529000" />
+      <workItem from="1574717511020" duration="5779000" />
     </task>
     <servers />
   </component>
@@ -333,11 +330,12 @@
     <state x="110" y="143" width="1140" height="469" key="dock-window-4/0.23.1360.708@0.23.1360.708" timestamp="1572456713213" />
     <state x="110" y="143" width="1140" height="469" key="dock-window-4/0.23.1360.709@0.23.1360.709" timestamp="1573067487322" />
     <state x="110" y="143" width="1140" height="470" key="dock-window-4/0.23.1360.710@0.23.1360.710" timestamp="1573422735078" />
-    <state x="272" y="23" width="816" height="709" key="find.popup" timestamp="1571835099090">
-      <screen x="0" y="23" width="1360" height="710" />
+    <state x="272" y="23" width="816" height="711" key="find.popup" timestamp="1574768701305">
+      <screen x="0" y="23" width="1360" height="712" />
     </state>
     <state x="272" y="23" width="816" height="708" key="find.popup/0.23.1360.709@0.23.1360.709" timestamp="1571067770441" />
     <state x="272" y="23" width="816" height="709" key="find.popup/0.23.1360.710@0.23.1360.710" timestamp="1571835099090" />
+    <state x="272" y="23" width="816" height="711" key="find.popup/0.23.1360.712@0.23.1360.712" timestamp="1574768701305" />
     <state x="272" y="23" width="816" height="708" key="find.popup/1360.768" timestamp="1571066248410" />
     <state x="345" y="168" width="670" height="675" key="run.anything.popup" timestamp="1574724826898">
       <screen x="0" y="23" width="1360" height="711" />
@@ -347,14 +345,14 @@
     <state x="345" y="168" key="run.anything.popup/0.23.1360.710@0.23.1360.710" timestamp="1574028586410" />
     <state x="345" y="168" width="670" height="675" key="run.anything.popup/0.23.1360.711@0.23.1360.711" timestamp="1574724826898" />
     <state x="345" y="168" key="run.anything.popup/1360.768" timestamp="1571066248410" />
-    <state x="345" y="55" width="670" height="679" key="search.everywhere.popup" timestamp="1574764505432">
+    <state x="345" y="55" width="670" height="679" key="search.everywhere.popup" timestamp="1574768707360">
       <screen x="0" y="23" width="1360" height="712" />
     </state>
     <state x="345" y="55" width="670" height="676" key="search.everywhere.popup/0.23.1360.708@0.23.1360.708" timestamp="1572457227067" />
     <state x="345" y="55" width="670" height="676" key="search.everywhere.popup/0.23.1360.709@0.23.1360.709" timestamp="1573067304208" />
     <state x="345" y="55" width="670" height="677" key="search.everywhere.popup/0.23.1360.710@0.23.1360.710" timestamp="1574031783265" />
     <state x="345" y="55" width="670" height="678" key="search.everywhere.popup/0.23.1360.711@0.23.1360.711" timestamp="1574724927610" />
-    <state x="345" y="55" width="670" height="679" key="search.everywhere.popup/0.23.1360.712@0.23.1360.712" timestamp="1574764505432" />
+    <state x="345" y="55" width="670" height="679" key="search.everywhere.popup/0.23.1360.712@0.23.1360.712" timestamp="1574768707360" />
     <state x="345" y="55" width="670" height="676" key="search.everywhere.popup/1360.768" timestamp="1571066248410" />
     <state x="410" y="296" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1571066248410" />
     <state x="410" y="296" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/1360.768" timestamp="1571066248410" />
