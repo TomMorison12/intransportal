@@ -8,7 +8,7 @@
                     <div class="card-header"><a href="#">{{ $thread->creator->name}}</a> posted {{$thread->title}}</div>
 
                     <div class="card-body">
-                        {{nl2br($thread->body)}}
+                        {!! nl2br(e($thread->body)) !!}
                     </div>
                 </div>
 
