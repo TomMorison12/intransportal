@@ -8,9 +8,11 @@
         <button type="submit" class="btn btn-default">Favorite</button>
     </form>
 </div>
-    <div class="card-body">
-{!! nl2br(e($reply->body)) !!}
 
-    </div>
 </div>
+</div>
+
+<div class="card-body">
+    {!! nl2br(e($reply->body)) !!}
+
 </div>
