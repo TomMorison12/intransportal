@@ -2,9 +2,9 @@
 
     <div class="card-header">
         <div class="card-level">
-        <a href="$">{{ $reply->owner->name }}</a> said {{ $reply->created_at->diffForHumans()}}</div>
+        <a class="flex" href="#">{{ $reply->owner->name }}</a> said {{ $reply->created_at->diffForHumans()}}</div>
 </div>
-<div class="flex">
+<div>
     <form action="">
         <button type="submit" class="btn btn-default">Favorite</button>
     </form>
