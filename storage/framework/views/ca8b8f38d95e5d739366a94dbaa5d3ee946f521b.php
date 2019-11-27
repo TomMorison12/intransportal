@@ -6,7 +6,7 @@
                     <div class="card-header"><a href="#"><?php echo e($thread->creator->name); ?></a> posted <?php echo e($thread->title); ?></div>
 
                     <div class="card-body">
-                        <?php echo e($thread->body); ?>
+                        <?php echo nl2br(e($thread->body)); ?>
 
                     </div>
                 </div>

@@ -32,4 +32,22 @@ class FavoritesTest extends TestCase
 
             $this->withoutExceptionHandling()->assertCount(1, $reply->favorites);
         }
+
+
+        function test_an_authenticated_user_may_only_favorite_a_reply_once() {
+            $this->signIn();
+            $reply = create('App\Reply');
+
+            try {
+                $this->post('forum/replies/' . $reply->id . '/favorite');
+                $this->post('forum/replies/' . $reply->id . '/favorite');
+            } catch(\Exception $e) {
+                $this->fail('Did not expect to insert row twice');
+            }
+
+            $this->withoutExceptionHandling()->assertCount(1, $reply->favorites);
+        }
+
+
+
 }

@@ -4,8 +4,7 @@
 
 
     <div class="card-body">
-<?php echo e($reply->body); ?>
-
+{<?php echo nl2br(e($reply->body)); ?>}
 
     </div>
 </div>

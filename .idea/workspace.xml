@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d6c89fda-7596-4e50-b142-3eedc9fd4b1b" name="Default Changelist" comment="" />
+    <list default="true" id="d6c89fda-7596-4e50-b142-3eedc9fd4b1b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FavoritesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FavoritesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Reply.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Reply.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_25_215903_create_favorites_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_11_25_215903_create_favorites_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/intransportal" beforeDir="false" afterPath="$PROJECT_DIR$/intransportal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/threads/reply.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/threads/reply.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/a19efbe453c16345ab6b0e133d2ede8c1956057f.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/a19efbe453c16345ab6b0e133d2ede8c1956057f.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/ca8b8f38d95e5d739366a94dbaa5d3ee946f521b.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/ca8b8f38d95e5d739366a94dbaa5d3ee946f521b.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2019-10-20.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/FavoritesTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/FavoritesTest.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -250,6 +261,7 @@
       <workItem from="1573938763543" duration="18296000" />
       <workItem from="1574524232840" duration="4937000" />
       <workItem from="1574717511020" duration="5779000" />
+      <workItem from="1574879375652" duration="2067000" />
     </task>
     <servers />
   </component>
@@ -345,13 +357,13 @@
     <state x="345" y="168" key="run.anything.popup/0.23.1360.710@0.23.1360.710" timestamp="1574028586410" />
     <state x="345" y="168" width="670" height="675" key="run.anything.popup/0.23.1360.711@0.23.1360.711" timestamp="1574724826898" />
     <state x="345" y="168" key="run.anything.popup/1360.768" timestamp="1571066248410" />
-    <state x="345" y="55" width="670" height="679" key="search.everywhere.popup" timestamp="1574768707360">
-      <screen x="0" y="23" width="1360" height="712" />
+    <state x="345" y="55" width="670" height="678" key="search.everywhere.popup" timestamp="1574885431818">
+      <screen x="0" y="23" width="1360" height="711" />
     </state>
     <state x="345" y="55" width="670" height="676" key="search.everywhere.popup/0.23.1360.708@0.23.1360.708" timestamp="1572457227067" />
     <state x="345" y="55" width="670" height="676" key="search.everywhere.popup/0.23.1360.709@0.23.1360.709" timestamp="1573067304208" />
     <state x="345" y="55" width="670" height="677" key="search.everywhere.popup/0.23.1360.710@0.23.1360.710" timestamp="1574031783265" />
-    <state x="345" y="55" width="670" height="678" key="search.everywhere.popup/0.23.1360.711@0.23.1360.711" timestamp="1574724927610" />
+    <state x="345" y="55" width="670" height="678" key="search.everywhere.popup/0.23.1360.711@0.23.1360.711" timestamp="1574885431818" />
     <state x="345" y="55" width="670" height="679" key="search.everywhere.popup/0.23.1360.712@0.23.1360.712" timestamp="1574768707360" />
     <state x="345" y="55" width="670" height="676" key="search.everywhere.popup/1360.768" timestamp="1571066248410" />
     <state x="410" y="296" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1571066248410" />
