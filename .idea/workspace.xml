@@ -141,12 +141,6 @@
       <path value="$PROJECT_DIR$/vendor/giggsey/libphonenumber-for-php" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="20" />
-    <option name="y" value="27" />
-    <option name="width" value="1340" />
-    <option name="height" value="701" />
-  </component>
   <component name="ProjectId" id="1QZ7Qtg6zj3yhfS5iqeJCot3ZEc" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -156,6 +150,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Blade" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -254,6 +249,8 @@
       <workItem from="1574524232840" duration="4937000" />
       <workItem from="1574717511020" duration="5779000" />
       <workItem from="1574879375652" duration="2606000" />
+      <workItem from="1574988732716" duration="1462000" />
+      <workItem from="1575036222918" duration="667000" />
     </task>
     <servers />
   </component>
@@ -314,9 +311,10 @@
     <state x="236" y="23" width="1014" height="709" key="SettingsEditor/0.23.1360.709@0.23.1360.709" timestamp="1571710105076" />
     <state x="236" y="23" key="SettingsEditor/0.23.1360.710@0.23.1360.710" timestamp="1573938822484" />
     <state x="236" y="23" width="1014" height="708" key="SettingsEditor/1360.768" timestamp="1571066248410" />
-    <state x="307" y="215" key="com.intellij.ide.util.TipDialog" timestamp="1574717511134">
-      <screen x="0" y="23" width="1360" height="711" />
+    <state x="307" y="197" key="com.intellij.ide.util.TipDialog" timestamp="1574988733846">
+      <screen x="0" y="0" width="1360" height="728" />
     </state>
+    <state x="307" y="197" key="com.intellij.ide.util.TipDialog/0.0.1360.728@0.0.1360.728" timestamp="1574988733846" />
     <state x="307" y="215" key="com.intellij.ide.util.TipDialog/0.23.1360.708@0.23.1360.708" timestamp="1572456680585" />
     <state x="307" y="215" key="com.intellij.ide.util.TipDialog/0.23.1360.709@0.23.1360.709" timestamp="1573067259488" />
     <state x="307" y="215" key="com.intellij.ide.util.TipDialog/0.23.1360.710@0.23.1360.710" timestamp="1573938769128" />
@@ -349,9 +347,10 @@
     <state x="345" y="168" key="run.anything.popup/0.23.1360.710@0.23.1360.710" timestamp="1574028586410" />
     <state x="345" y="168" width="670" height="675" key="run.anything.popup/0.23.1360.711@0.23.1360.711" timestamp="1574724826898" />
     <state x="345" y="168" key="run.anything.popup/1360.768" timestamp="1571066248410" />
-    <state x="345" y="55" width="670" height="678" key="search.everywhere.popup" timestamp="1574885994932">
-      <screen x="0" y="23" width="1360" height="711" />
+    <state x="345" y="33" width="672" height="695" key="search.everywhere.popup" timestamp="1575036241140">
+      <screen x="0" y="0" width="1360" height="728" />
     </state>
+    <state x="345" y="33" width="672" height="695" key="search.everywhere.popup/0.0.1360.728@0.0.1360.728" timestamp="1575036241140" />
     <state x="345" y="55" width="670" height="676" key="search.everywhere.popup/0.23.1360.708@0.23.1360.708" timestamp="1572457227067" />
     <state x="345" y="55" width="670" height="676" key="search.everywhere.popup/0.23.1360.709@0.23.1360.709" timestamp="1573067304208" />
     <state x="345" y="55" width="670" height="677" key="search.everywhere.popup/0.23.1360.710@0.23.1360.710" timestamp="1574031783265" />
