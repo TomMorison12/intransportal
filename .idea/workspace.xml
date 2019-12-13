@@ -2,8 +2,56 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6c89fda-7596-4e50-b142-3eedc9fd4b1b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/RecordActivity.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/nav.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/profiles/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/intransportal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/intransportal.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FavoritesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FavoritesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ThreadsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ThreadsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Reply.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Reply.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Thread.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Thread.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/ThreadFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/ThreadFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_09_19_195939_create_threads_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_09_19_195939_create_threads_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_25_215903_create_favorites_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_11_25_215903_create_favorites_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/intransportal" beforeDir="false" afterPath="$PROJECT_DIR$/intransportal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/threads/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/threads/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/threads/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/threads/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/threads/reply.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/threads/reply.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/threads/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/threads/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/FLEAgOScW34pas0Go0L73YXh647cfMsYZOzbfrld" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/dD1DfJQdhCboLolNqkpMIIsQXyQegZHPtTfxOTgW" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/0e4da94ec1fce6b4c44959b7f7e3cd8b104814ac.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/0e4da94ec1fce6b4c44959b7f7e3cd8b104814ac.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/2e7684c3d4b03abbb7c2006b1867e743998d9e47.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/2e7684c3d4b03abbb7c2006b1867e743998d9e47.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/a19efbe453c16345ab6b0e133d2ede8c1956057f.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/a19efbe453c16345ab6b0e133d2ede8c1956057f.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/ca8b8f38d95e5d739366a94dbaa5d3ee946f521b.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/ca8b8f38d95e5d739366a94dbaa5d3ee946f521b.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/f48600579dbdfc9cfc9f96854735bfcdbbef7e7d.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/f48600579dbdfc9cfc9f96854735bfcdbbef7e7d.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2019-10-21.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2019-10-22.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2019-10-23.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2019-10-30.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2019-10-31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2019-11-05.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2019-11-06.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/CreateThreadsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/CreateThreadsTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/FavoritesTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/FavoritesTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/ParticipateInForumTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/ParticipateInForumTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/ReadThreadsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/ReadThreadsTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/ReplyTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/ReplyTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/ThreadTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/ThreadTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/utilities/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/utilities/functions.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,18 +187,15 @@
       <path value="$PROJECT_DIR$/vendor/google/auth" />
       <path value="$PROJECT_DIR$/vendor/giggsey/locale" />
       <path value="$PROJECT_DIR$/vendor/giggsey/libphonenumber-for-php" />
+      <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
     </include_path>
-  </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="20" />
-    <option name="y" value="27" />
-    <option name="width" value="1340" />
-    <option name="height" value="701" />
   </component>
   <component name="ProjectId" id="1QZ7Qtg6zj3yhfS5iqeJCot3ZEc" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="autoscrollToSource" value="true" />
+    <option name="foldersAlwaysOnTop" value="false" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -176,7 +221,7 @@
       <recent name="$PROJECT_DIR$/tests/Unit" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.ChannelTest (1)">
+  <component name="RunManager" selected="PHPUnit.ReplyTest.test_it_has_an_owner">
     <configuration name="ChannelTest (1)" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Feature\ChannelTest" file="$PROJECT_DIR$/tests/Unit/ChannelTest.php" scope="Class" />
       <method v="2" />
@@ -254,6 +299,10 @@
       <workItem from="1574524232840" duration="4937000" />
       <workItem from="1574717511020" duration="5779000" />
       <workItem from="1574879375652" duration="2606000" />
+      <workItem from="1575040859809" duration="36671000" />
+      <workItem from="1575871558909" duration="14915000" />
+      <workItem from="1575932390674" duration="3583000" />
+      <workItem from="1575989567060" duration="4270000" />
     </task>
     <servers />
   </component>
@@ -273,10 +322,11 @@
       <screen x="0" y="23" width="1360" height="709" />
     </state>
     <state x="355" y="23" key="#PHP/0.23.1360.709@0.23.1360.709" timestamp="1571713809255" />
-    <state x="338" y="23" key="#ReplyTest.test_it_has_an_owner" timestamp="1571711405169">
-      <screen x="0" y="23" width="1360" height="709" />
+    <state x="338" y="23" key="#ReplyTest.test_it_has_an_owner" timestamp="1575865802452">
+      <screen x="0" y="23" width="1360" height="712" />
     </state>
     <state x="338" y="23" key="#ReplyTest.test_it_has_an_owner/0.23.1360.709@0.23.1360.709" timestamp="1571711405169" />
+    <state x="338" y="23" key="#ReplyTest.test_it_has_an_owner/0.23.1360.712@0.23.1360.712" timestamp="1575865802452" />
     <state x="338" y="23" key="#ReplyTest.test_it_has_an_owner/1360.768" timestamp="1571066248410" />
     <state x="480" y="225" key="#com.intellij.codeInsight.template.impl.EditVariableDialog" timestamp="1571610264328">
       <screen x="0" y="23" width="1360" height="709" />
@@ -300,40 +350,97 @@
     </state>
     <state x="442" y="23" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method0/0.23.1360.709@0.23.1360.709" timestamp="1572480677045" />
     <state x="442" y="23" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method0/0.23.1360.710@0.23.1360.710" timestamp="1573358833989" />
-    <state x="467" y="136" key="#com.jetbrains.php.refactoring.pullPush.pullUp.PhpPullUpDialog#1" timestamp="1573357732342">
-      <screen x="0" y="23" width="1360" height="710" />
+    <state x="467" y="23" key="#com.jetbrains.php.refactoring.pullPush.pullUp.PhpPullUpDialog#1" timestamp="1575940197684">
+      <screen x="0" y="23" width="1360" height="712" />
     </state>
     <state x="467" y="136" key="#com.jetbrains.php.refactoring.pullPush.pullUp.PhpPullUpDialog#1/0.23.1360.710@0.23.1360.710" timestamp="1573357732342" />
+    <state x="467" y="23" key="#com.jetbrains.php.refactoring.pullPush.pullUp.PhpPullUpDialog#1/0.23.1360.711@0.23.1360.711" timestamp="1575348977461" />
+    <state x="467" y="23" key="#com.jetbrains.php.refactoring.pullPush.pullUp.PhpPullUpDialog#1/0.23.1360.712@0.23.1360.712" timestamp="1575940197684" />
     <state x="467" y="156" key="#com.jetbrains.php.refactoring.pullPush.pushDown.PhpPushDownDialog#" timestamp="1573358765422">
       <screen x="0" y="23" width="1360" height="710" />
     </state>
     <state x="467" y="156" key="#com.jetbrains.php.refactoring.pullPush.pushDown.PhpPushDownDialog#/0.23.1360.710@0.23.1360.710" timestamp="1573358765422" />
+    <state x="252" y="23" key="CommitChangelistDialog2" timestamp="1575904107758">
+      <screen x="0" y="23" width="1360" height="712" />
+    </state>
+    <state x="252" y="23" key="CommitChangelistDialog2/0.23.1360.712@0.23.1360.712" timestamp="1575904107758" />
+    <state x="454" y="185" key="NewPhpClassDialog" timestamp="1575929437306">
+      <screen x="0" y="23" width="1360" height="712" />
+    </state>
+    <state x="454" y="185" key="NewPhpClassDialog/0.23.1360.712@0.23.1360.712" timestamp="1575929437306" />
+    <state x="501" y="304" key="NewPhpFileDialog" timestamp="1575348713543">
+      <screen x="0" y="23" width="1360" height="711" />
+    </state>
+    <state x="501" y="304" key="NewPhpFileDialog/0.23.1360.711@0.23.1360.711" timestamp="1575348713543" />
     <state x="236" y="23" width="1014" height="709" key="SettingsEditor" timestamp="1573938822484">
       <screen x="0" y="23" width="1360" height="710" />
     </state>
     <state x="236" y="23" width="1014" height="709" key="SettingsEditor/0.23.1360.709@0.23.1360.709" timestamp="1571710105076" />
     <state x="236" y="23" key="SettingsEditor/0.23.1360.710@0.23.1360.710" timestamp="1573938822484" />
     <state x="236" y="23" width="1014" height="708" key="SettingsEditor/1360.768" timestamp="1571066248410" />
-    <state x="307" y="215" key="com.intellij.ide.util.TipDialog" timestamp="1574717511134">
+    <state x="307" y="215" key="com.intellij.ide.util.TipDialog" timestamp="1575993570933">
       <screen x="0" y="23" width="1360" height="711" />
     </state>
     <state x="307" y="215" key="com.intellij.ide.util.TipDialog/0.23.1360.708@0.23.1360.708" timestamp="1572456680585" />
     <state x="307" y="215" key="com.intellij.ide.util.TipDialog/0.23.1360.709@0.23.1360.709" timestamp="1573067259488" />
     <state x="307" y="215" key="com.intellij.ide.util.TipDialog/0.23.1360.710@0.23.1360.710" timestamp="1573938769128" />
-    <state x="307" y="215" key="com.intellij.ide.util.TipDialog/0.23.1360.711@0.23.1360.711" timestamp="1574717511134" />
+    <state x="307" y="215" key="com.intellij.ide.util.TipDialog/0.23.1360.711@0.23.1360.711" timestamp="1575993570933" />
+    <state x="307" y="215" key="com.intellij.ide.util.TipDialog/0.23.1360.712@0.23.1360.712" timestamp="1575933213833" />
     <state x="307" y="215" key="com.intellij.ide.util.TipDialog/1360.768" timestamp="1571066248410" />
-    <state x="110" y="143" width="1140" height="470" key="dock-window-1" timestamp="1573357810175">
-      <screen x="0" y="23" width="1360" height="710" />
+    <state x="110" y="143" width="1140" height="472" key="dock-window-1" timestamp="1575993592776">
+      <screen x="0" y="23" width="1360" height="711" />
     </state>
     <state x="110" y="143" width="1140" height="469" key="dock-window-1/0.23.1360.708@0.23.1360.708" timestamp="1572456713212" />
     <state x="110" y="143" width="1140" height="469" key="dock-window-1/0.23.1360.709@0.23.1360.709" timestamp="1573067487321" />
     <state x="110" y="143" width="1140" height="470" key="dock-window-1/0.23.1360.710@0.23.1360.710" timestamp="1573357810175" />
-    <state x="110" y="143" width="1140" height="470" key="dock-window-4" timestamp="1573422735078">
-      <screen x="0" y="23" width="1360" height="710" />
+    <state x="110" y="143" width="1140" height="472" key="dock-window-1/0.23.1360.711@0.23.1360.711" timestamp="1575993592776" />
+    <state x="110" y="143" width="1140" height="472" key="dock-window-1/0.23.1360.712@0.23.1360.712" timestamp="1575933585988" />
+    <state x="110" y="143" width="1140" height="471" key="dock-window-10" timestamp="1575865932384">
+      <screen x="0" y="23" width="1360" height="712" />
+    </state>
+    <state x="110" y="143" width="1140" height="471" key="dock-window-10/0.23.1360.712@0.23.1360.712" timestamp="1575865932384" />
+    <state x="110" y="143" width="1140" height="471" key="dock-window-2" timestamp="1575993592776">
+      <screen x="0" y="23" width="1360" height="711" />
+    </state>
+    <state x="110" y="143" width="1140" height="471" key="dock-window-2/0.23.1360.711@0.23.1360.711" timestamp="1575993592776" />
+    <state x="110" y="143" width="1140" height="471" key="dock-window-2/0.23.1360.712@0.23.1360.712" timestamp="1575933585989" />
+    <state x="110" y="143" width="1140" height="471" key="dock-window-3" timestamp="1575993592776">
+      <screen x="0" y="23" width="1360" height="711" />
+    </state>
+    <state x="110" y="143" width="1140" height="471" key="dock-window-3/0.23.1360.711@0.23.1360.711" timestamp="1575993592776" />
+    <state x="110" y="143" width="1140" height="471" key="dock-window-3/0.23.1360.712@0.23.1360.712" timestamp="1575933585989" />
+    <state x="110" y="143" width="1140" height="472" key="dock-window-4" timestamp="1575993592777">
+      <screen x="0" y="23" width="1360" height="711" />
     </state>
     <state x="110" y="143" width="1140" height="469" key="dock-window-4/0.23.1360.708@0.23.1360.708" timestamp="1572456713213" />
     <state x="110" y="143" width="1140" height="469" key="dock-window-4/0.23.1360.709@0.23.1360.709" timestamp="1573067487322" />
     <state x="110" y="143" width="1140" height="470" key="dock-window-4/0.23.1360.710@0.23.1360.710" timestamp="1573422735078" />
+    <state x="110" y="143" width="1140" height="472" key="dock-window-4/0.23.1360.711@0.23.1360.711" timestamp="1575993592777" />
+    <state x="110" y="143" width="1140" height="472" key="dock-window-4/0.23.1360.712@0.23.1360.712" timestamp="1575933585989" />
+    <state x="110" y="143" width="1140" height="471" key="dock-window-5" timestamp="1575871601309">
+      <screen x="0" y="23" width="1360" height="712" />
+    </state>
+    <state x="110" y="143" width="1140" height="471" key="dock-window-5/0.23.1360.712@0.23.1360.712" timestamp="1575871601309" />
+    <state x="110" y="143" width="1140" height="471" key="dock-window-6" timestamp="1575993592777">
+      <screen x="0" y="23" width="1360" height="711" />
+    </state>
+    <state x="110" y="143" width="1140" height="471" key="dock-window-6/0.23.1360.711@0.23.1360.711" timestamp="1575993592777" />
+    <state x="110" y="143" width="1140" height="471" key="dock-window-6/0.23.1360.712@0.23.1360.712" timestamp="1575933585990" />
+    <state x="110" y="143" width="1140" height="471" key="dock-window-7" timestamp="1575993592777">
+      <screen x="0" y="23" width="1360" height="711" />
+    </state>
+    <state x="110" y="143" width="1140" height="471" key="dock-window-7/0.23.1360.711@0.23.1360.711" timestamp="1575993592777" />
+    <state x="110" y="143" width="1140" height="471" key="dock-window-7/0.23.1360.712@0.23.1360.712" timestamp="1575933585990" />
+    <state x="110" y="143" width="1140" height="471" key="dock-window-8" timestamp="1575993592778">
+      <screen x="0" y="23" width="1360" height="711" />
+    </state>
+    <state x="110" y="143" width="1140" height="471" key="dock-window-8/0.23.1360.711@0.23.1360.711" timestamp="1575993592778" />
+    <state x="110" y="143" width="1140" height="471" key="dock-window-8/0.23.1360.712@0.23.1360.712" timestamp="1575933585990" />
+    <state x="110" y="143" width="1140" height="471" key="dock-window-9" timestamp="1575993592778">
+      <screen x="0" y="23" width="1360" height="711" />
+    </state>
+    <state x="110" y="143" width="1140" height="471" key="dock-window-9/0.23.1360.711@0.23.1360.711" timestamp="1575993592778" />
+    <state x="110" y="143" width="1140" height="471" key="dock-window-9/0.23.1360.712@0.23.1360.712" timestamp="1575933585990" />
     <state x="272" y="23" width="816" height="711" key="find.popup" timestamp="1574768701305">
       <screen x="0" y="23" width="1360" height="712" />
     </state>
@@ -341,22 +448,23 @@
     <state x="272" y="23" width="816" height="709" key="find.popup/0.23.1360.710@0.23.1360.710" timestamp="1571835099090" />
     <state x="272" y="23" width="816" height="711" key="find.popup/0.23.1360.712@0.23.1360.712" timestamp="1574768701305" />
     <state x="272" y="23" width="816" height="708" key="find.popup/1360.768" timestamp="1571066248410" />
-    <state x="345" y="168" width="670" height="675" key="run.anything.popup" timestamp="1574724826898">
+    <state x="345" y="168" width="670" height="675" key="run.anything.popup" timestamp="1576007058014">
       <screen x="0" y="23" width="1360" height="711" />
     </state>
     <state x="345" y="168" key="run.anything.popup/0.23.1360.708@0.23.1360.708" timestamp="1571506630569" />
     <state x="345" y="168" key="run.anything.popup/0.23.1360.709@0.23.1360.709" timestamp="1572458723345" />
     <state x="345" y="168" key="run.anything.popup/0.23.1360.710@0.23.1360.710" timestamp="1574028586410" />
-    <state x="345" y="168" width="670" height="675" key="run.anything.popup/0.23.1360.711@0.23.1360.711" timestamp="1574724826898" />
+    <state x="345" y="168" width="670" height="675" key="run.anything.popup/0.23.1360.711@0.23.1360.711" timestamp="1576007058014" />
+    <state x="345" y="168" width="670" height="676" key="run.anything.popup/0.23.1360.712@0.23.1360.712" timestamp="1575873814980" />
     <state x="345" y="168" key="run.anything.popup/1360.768" timestamp="1571066248410" />
-    <state x="345" y="55" width="670" height="678" key="search.everywhere.popup" timestamp="1574885994932">
+    <state x="345" y="55" width="670" height="678" key="search.everywhere.popup" timestamp="1575996313348">
       <screen x="0" y="23" width="1360" height="711" />
     </state>
     <state x="345" y="55" width="670" height="676" key="search.everywhere.popup/0.23.1360.708@0.23.1360.708" timestamp="1572457227067" />
     <state x="345" y="55" width="670" height="676" key="search.everywhere.popup/0.23.1360.709@0.23.1360.709" timestamp="1573067304208" />
     <state x="345" y="55" width="670" height="677" key="search.everywhere.popup/0.23.1360.710@0.23.1360.710" timestamp="1574031783265" />
-    <state x="345" y="55" width="670" height="678" key="search.everywhere.popup/0.23.1360.711@0.23.1360.711" timestamp="1574885994932" />
-    <state x="345" y="55" width="670" height="679" key="search.everywhere.popup/0.23.1360.712@0.23.1360.712" timestamp="1574768707360" />
+    <state x="345" y="55" width="670" height="678" key="search.everywhere.popup/0.23.1360.711@0.23.1360.711" timestamp="1575996313348" />
+    <state x="345" y="55" width="670" height="679" key="search.everywhere.popup/0.23.1360.712@0.23.1360.712" timestamp="1575942504349" />
     <state x="345" y="55" width="670" height="676" key="search.everywhere.popup/1360.768" timestamp="1571066248410" />
     <state x="410" y="296" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1571066248410" />
     <state x="410" y="296" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/1360.768" timestamp="1571066248410" />

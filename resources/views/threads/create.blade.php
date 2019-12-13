@@ -6,7 +6,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">Create a New Thread</div>
-                    <form method="post" action="/forum/threads">
+                    <form method="post" action="/threads">
 
                         {{csrf_field()}}
 

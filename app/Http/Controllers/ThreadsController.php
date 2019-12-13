@@ -109,12 +109,21 @@ class ThreadsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $channel
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($channel, Thread $thread)
     {
-        //
+        $this->authorize("update", $thread);
+
+        $thread->replies()->delete();
+        $thread->delete();
+
+          if(request()->wantsJson()) {
+        return response([], 204);
+
+    }
+          return redirect(page_url('forum','/threads'));
     }
 
     protected function getThread(Channel $channel, ThreadFilters $filter) {

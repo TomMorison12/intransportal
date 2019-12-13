@@ -29,7 +29,7 @@ class ReadThreadsTest extends TestCase
     {
 
 
-        $response = $this->get('/forum/threads');
+        $response = $this->get(page_url('forum','/threads'));
 
         $response->assertSee($this->thread->title);
 
@@ -38,14 +38,14 @@ class ReadThreadsTest extends TestCase
 
     function a_user_can_read_a_single_thread() {
 
-        $this->get('/forum/threads' . $this->thread->id)->assertSee($this->thread->title);
+        $this->get(page_url('forum', '/threads/' . $this->thread->id))->assertSee($this->thread->title);
     }
 
     function a_user_can_read_replies_that_are_associated_with_a_thread() {
 
         $reply = factory('App\Reply')->create(['thread_id' => $this->thread->id]);
 
-        $this->get('/forum/threads/'. $this->thread->id)->assertSee($reply->body);
+        $this->get(page_url('forum','/threads/'. $this->thread->id))->assertSee($reply->body);
 
     }
 
@@ -53,7 +53,7 @@ class ReadThreadsTest extends TestCase
         $channel = create('App\Channel');
         $threadInChannel = create('App\Thread', ['channel_id' => $channel->id]);
         $threadNotInChannel = create('App\Thread');
-        $this->withoutExceptionHandling()->get('forum/threads/'.$channel->slug)->assertSee($threadInChannel->title)->assertDontSee($threadNotInChannel->title);
+        $this->withoutExceptionHandling()->get(page_url('forum', '/threads/'.$channel->slug))->assertSee($threadInChannel->title)->assertDontSee($threadNotInChannel->title);
     }
 
     function test_a_user_can_filter_threads_by_any_username() {
@@ -63,7 +63,7 @@ class ReadThreadsTest extends TestCase
 
         $threadNotByJohn = create('App\Thread');
 
-        $this->withoutExceptionHandling()->get('forum/threads?by=JohnDoe')->assertSee($threadByJohn->title)->assertDontSee($threadNotByJohn->title);
+        $this->withoutExceptionHandling()->get(page_url('forum', '/threads?by=JohnDoe'))->assertSee($threadByJohn->title)->assertDontSee($threadNotByJohn->title);
     }
 
     function test_a_user_can_filter_threads_by_popularity() {
@@ -75,7 +75,7 @@ class ReadThreadsTest extends TestCase
         $threadWithNoReplies = $this->thread;
 
 
-        $response = $this->getJson('forum/threads?popular=1')->json();
+        $response = $this->getJson(page_url('forum', '/threads?popular=1'))->json();
 
         $this->assertEquals([3,2,0], array_column($response, 'replies_count'));
     }

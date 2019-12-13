@@ -3,7 +3,20 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header"><a href="#"><?php echo e($thread->creator->name); ?></a> posted <?php echo e($thread->title); ?></div>
+                    <div class="card-header">
+                        <div class="level">
+                            <span class="flex"><a href="<?php echo e(url('profiles/'.$thread->creator->name)); ?>"><?php echo e($thread->creator->name); ?></a> posted <?php echo e($thread->title); ?></span>
+                            <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('update', $thread)): ?>
+                            <form action="<?php echo e($thread->path()); ?>" method="post">
+                            <?php echo e(csrf_field()); ?>
+
+                            <?php echo e(method_field('DELETE')); ?>
+
+                            <button type="submit" class="btn btn-link">Delete</button>
+                        </form>
+                        <?php endif; ?>
+                        </div>
+                    </div>
 
                     <div class="card-body">
                         <?php echo nl2br(e($thread->body)); ?>

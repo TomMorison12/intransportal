@@ -11,22 +11,22 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+$domain = parse_url(config('app.url'), PHP_URL_HOST);
+Route::domain($domain)->group(function() {
+    Route::get('/threads/', 'ThreadsController@index');
+    Route::get('/threads/create', 'ThreadsController@create');
+    Route::get('/threads/{channel}/{thread}', 'ThreadsController@show');
+    Route::delete('/threads/{channel}/{thread}', 'ThreadsController@destroy');
+    Route::post('/threads', 'ThreadsController@store');
+    Route::post('/threads/{channel}/{thread}/replies','RepliesController@store');
+    Route::get('/threads/{channel}', 'ThreadsController@index');
+    Route::post('/replies/{reply}/favorite', 'FavoritesController@store');
+    Route::get('/', 'ThreadsController@index');
+
+
 });
-
-
+Route::get('/','HomeController@index');
 Auth::routes();
-
+Route::get('profiles/{user}', 'ProfilesController@show')->name('profile');
 Route::get('/home', 'HomeController@index')->name('home');
-//Route::resource('forum/threads', 'ThreadsController');
-
-Route::get('/forum/threads/', 'ThreadsController@index');
-Route::get('/forum/threads/create', 'ThreadsController@create');
-Route::get('/forum/threads/{channel}/{thread}', 'ThreadsController@show');
-Route::post('/forum/threads', 'ThreadsController@store');
-Route::post('forum/threads/{channel}/{thread}/replies','RepliesController@store');
-Route::get('/forum/threads/{channel}', 'ThreadsController@index');
-Route::post('/forum/replies/{reply}/favorite', 'FavoritesController@store');
-
 Route::resource('photos', 'PhotosController');

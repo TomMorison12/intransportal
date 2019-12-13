@@ -6,16 +6,29 @@ use Illuminate\Database\Eloquent\Model;
 
 class Thread extends Model
 {
+    use RecordActivity;
     protected $guarded = [];
-    protected static function boot() {
+
+
+
+    protected $with = ['creator', 'channel'];
+    protected static function boot()
+    {
         parent::boot();
 
-        parent::addGlobalScope('replyCount', function($builder) {
-           $builder->withCount('replies');
+        static::addGlobalScope('replyCount', function ($builder) {
+            $builder->withCount('replies');
+        });
+
+        static::deleting(function ($thread) {
+            $thread->replies()->delete();
         });
     }
+
+
+
     public function path() {
-        return "/forum/threads/" . $this->channel->slug . '/'.  $this->id;
+        return page_url('forum',"/threads/" . $this->channel->slug . '/'.  $this->id);
     }
 
     public function replies() {

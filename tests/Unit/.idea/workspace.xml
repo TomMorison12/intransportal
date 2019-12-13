@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="78abd5d4-0d58-4f63-b56a-e7f7095b2609" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../resources/views/layouts/nav.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../resources/views/profiles/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/intransportal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/intransportal.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Http/Controllers/FavoritesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Http/Controllers/FavoritesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Http/Controllers/ThreadsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Http/Controllers/ThreadsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Providers/AuthServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Reply.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Reply.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Thread.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Thread.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../config/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../database/migrations/2019_09_19_195939_create_threads_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../database/migrations/2019_09_19_195939_create_threads_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../database/migrations/2019_11_25_215903_create_favorites_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../database/migrations/2019_11_25_215903_create_favorites_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../intransportal" beforeDir="false" afterPath="$PROJECT_DIR$/../../intransportal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../resources/views/threads/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../resources/views/threads/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../resources/views/threads/reply.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../resources/views/threads/reply.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../resources/views/threads/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../resources/views/threads/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../storage/framework/sessions/FLEAgOScW34pas0Go0L73YXh647cfMsYZOzbfrld" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../storage/framework/sessions/dD1DfJQdhCboLolNqkpMIIsQXyQegZHPtTfxOTgW" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../storage/framework/views/0e4da94ec1fce6b4c44959b7f7e3cd8b104814ac.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../storage/framework/views/0e4da94ec1fce6b4c44959b7f7e3cd8b104814ac.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../storage/framework/views/2e7684c3d4b03abbb7c2006b1867e743998d9e47.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../storage/framework/views/2e7684c3d4b03abbb7c2006b1867e743998d9e47.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../storage/framework/views/a19efbe453c16345ab6b0e133d2ede8c1956057f.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../storage/framework/views/a19efbe453c16345ab6b0e133d2ede8c1956057f.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../storage/framework/views/ca8b8f38d95e5d739366a94dbaa5d3ee946f521b.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../storage/framework/views/ca8b8f38d95e5d739366a94dbaa5d3ee946f521b.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../storage/logs/laravel-2019-10-21.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../storage/logs/laravel-2019-10-22.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../storage/logs/laravel-2019-10-23.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../storage/logs/laravel-2019-10-30.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../storage/logs/laravel-2019-10-31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../storage/logs/laravel-2019-11-05.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Feature/CreateThreadsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Feature/CreateThreadsTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReplyTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/ReplyTest.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1UjYVDaUBqTKMu70dTTwkuuTDpw" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="78abd5d4-0d58-4f63-b56a-e7f7095b2609" name="Default Changelist" comment="" />
+      <created>1575871493057</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1575871493057</updated>
+      <workItem from="1575871497428" duration="57000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="345" y="59" width="670" height="676" key="search.everywhere.popup" timestamp="1575871522362">
+      <screen x="0" y="23" width="1360" height="712" />
+    </state>
+    <state x="345" y="59" width="670" height="676" key="search.everywhere.popup/0.23.1360.712@0.23.1360.712" timestamp="1575871522362" />
+  </component>
+</project>

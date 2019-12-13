@@ -11,7 +11,7 @@ $factory->define(Thread::class, function (Faker $faker) {
             return factory('App\User')->create()->id;
         },
         'channel_id' => function() {
-            return create('App\Channel')->id;
+            return factory('App\Channel')->create()->id;
         },
         'title' => $faker->sentence,
         'body' => $faker->paragraph
