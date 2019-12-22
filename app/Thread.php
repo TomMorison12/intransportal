@@ -21,14 +21,14 @@ class Thread extends Model
         });
 
         static::deleting(function ($thread) {
-            $thread->replies()->delete();
+            $thread->replies->each->delete();
         });
     }
 
 
 
     public function path() {
-        return page_url('forum',"/threads/" . $this->channel->slug . '/'.  $this->id);
+        return page_url('forum',"threads/" . $this->channel->slug . '/'.  $this->id);
     }
 
     public function replies() {

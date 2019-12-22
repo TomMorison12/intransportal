@@ -5,7 +5,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="level">
-                            <span class="flex"><a href="<?php echo e(url('profiles/'.$thread->creator->name)); ?>"><?php echo e($thread->creator->name); ?></a> posted <?php echo e($thread->title); ?></span>
+                            <span class="flex"><a href="<?php echo e(page_url(null, 'profiles/'.$thread->creator->name)); ?>"><?php echo e($thread->creator->name); ?></a> posted <?php echo e($thread->title); ?></span>
                             <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('update', $thread)): ?>
                             <form action="<?php echo e($thread->path()); ?>" method="post">
                             <?php echo e(csrf_field()); ?>

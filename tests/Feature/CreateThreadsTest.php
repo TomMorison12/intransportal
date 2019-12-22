@@ -2,7 +2,9 @@
 
 namespace Tests\Feature;
 
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Tests\TestCase;
 use App\Thread;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -14,17 +16,17 @@ class CreateThreadsTest extends TestCase
     use DatabaseMigrations;
 
     function test_guests_may_not_create_threads() {
-        $this->expectException(\Illuminate\Auth\AuthenticationException::class);
-        $thread = make('App\Thread');
-        $this->withExceptionHandling()->post('/threads', $thread->toArray())->assertRedirect('/login');
 
-        $response = $this->withoutExceptionHandling()->get('/threads/create');
+        $thread = make('App\Thread');
+        $this->withExceptionHandling()->post(page_url('forum','threads'), $thread->toArray())->assertRedirect('/login');
+
+
     }
     function test_an_authenticated_user_can_create_new_forum_threads() {
 
         $this->signIn();
         $thread = make('App\Thread');
-        $response = $this->withoutExceptionHandling()->post(page_url('forum', '/threads'), $thread->toArray());
+        $response = $this->post(page_url('forum','/threads'), $thread->toArray());
         $this->get($response->headers->get('Location'))
            ->assertSee($thread->title)
         ->assertSee($thread->body);
@@ -48,7 +50,7 @@ class CreateThreadsTest extends TestCase
     function test_guests_cannot_delete_threads() {
 
         $thread = create('App\Thread');
-        $this->delete($thread->path())->assertRedirect(page_url('forum', '/login'));
+        $this->delete($thread->path())->assertRedirect('/login');
 
         $this->signIn();
         $this->delete($thread->path())->assertStatus(403);
@@ -69,6 +71,8 @@ class CreateThreadsTest extends TestCase
         $response->assertStatus(204);
         $this->assertDatabaseMissing('threads', ['id' => $thread->id]);
         $this->assertDatabaseMissing('replies', ['id' => $reply->id]);
+        $this->assertDatabaseMissing('activities', ['subject_id' => $thread->id, 'subject_type' => get_class($thread)]);
+        $this->assertDatabaseMissing('activities', ['subject_id' => $reply->id, 'subject_type' => get_class($reply)]);
     }
 
 
@@ -78,7 +82,7 @@ class CreateThreadsTest extends TestCase
 
                 $thread = make('App\Thread', $overrides);
 
-               return $this->post('/threads', $thread->toArray());
+               return $this->post(page_url('forum','/threads'), $thread->toArray());
             }
 
 

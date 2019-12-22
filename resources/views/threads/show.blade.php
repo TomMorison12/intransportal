@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="level">
-                            <span class="flex"><a href="{{url('profiles/'.$thread->creator->name)}}">{{ $thread->creator->name}}</a> posted {{$thread->title}}</span>
+                            <span class="flex"><a href="{{page_url(null, 'profiles/'.$thread->creator->name)}}">{{ $thread->creator->name}}</a> posted {{$thread->title}}</span>
                             @can('update', $thread)
                             <form action="{{$thread->path()}}" method="post">
                             {{csrf_field()}}

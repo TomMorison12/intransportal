@@ -8,7 +8,7 @@
 @if(auth()->check())
 
 <div>
-    <form action="/forum/replies/{{$reply->id}}/favorite" method="post">
+    <form action="/replies/{{$reply->id}}/favorite" method="post">
         {{ csrf_field() }}
         <button type="submit" class="btn btn-default" {{$reply->isFavorited() ? 'disabled' : ''}}>
         {{$reply->favorites_count}} {{str_plural('Favorites', $reply->favorites_count)}}</button>

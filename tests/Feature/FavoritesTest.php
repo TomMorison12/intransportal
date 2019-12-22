@@ -20,7 +20,7 @@ class FavoritesTest extends TestCase
 
     public function test_guests_may_not_favorite_anything()
     {
-        $this->post('/replies/1/favorite')->assertRedirect('/login');
+        $this->post(page_url('forum', '/replies/1/favorite'))->assertRedirect('/login');
     }
 
         public function test_an_authentcated_user_can_favorite_any_reply() {
@@ -28,7 +28,7 @@ class FavoritesTest extends TestCase
             $reply = create('App\Reply');
 
 
-            $this->post('/replies/'. $reply->id. '/favorite');
+            $this->post(page_url('forum','replies/'. $reply->id. '/favorite'));
 
             $this->withoutExceptionHandling()->assertCount(1, $reply->favorites);
         }

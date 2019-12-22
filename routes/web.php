@@ -12,7 +12,7 @@
 */
 
 $domain = parse_url(config('app.url'), PHP_URL_HOST);
-Route::domain($domain)->group(function() {
+Route::domain('forum.'.$domain)->group(function() {
     Route::get('/threads/', 'ThreadsController@index');
     Route::get('/threads/create', 'ThreadsController@create');
     Route::get('/threads/{channel}/{thread}', 'ThreadsController@show');

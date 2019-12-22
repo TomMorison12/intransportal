@@ -11,9 +11,13 @@ function make($class, $attributes = [], $times = null) {
 
 function page_url($subdomain = null, $path) {
     if(is_null($subdomain)) {
-        return $path;
+        $domain = parse_url(config('app.url'), PHP_URL_HOST);
+
+
+
+        return 'http://'.$domain.'/'.$path;
 
     }
-    return "http://{$subdomain}.".env("APP_DOMAIN").$path;
+    return "http://{$subdomain}.".env("APP_DOMAIN").'/'.$path;
 
 }

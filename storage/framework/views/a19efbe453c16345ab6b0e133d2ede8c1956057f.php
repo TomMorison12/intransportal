@@ -9,7 +9,7 @@
 <?php if(auth()->check()): ?>
 
 <div>
-    <form action="/forum/replies/<?php echo e($reply->id); ?>/favorite" method="post">
+    <form action="/replies/<?php echo e($reply->id); ?>/favorite" method="post">
         <?php echo e(csrf_field()); ?>
 
         <button type="submit" class="btn btn-default" <?php echo e($reply->isFavorited() ? 'disabled' : ''); ?>>
