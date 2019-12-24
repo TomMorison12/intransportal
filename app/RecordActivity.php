@@ -8,13 +8,14 @@ trait RecordActivity
 {
     protected static function bootRecordActivity()
     {
-        if(auth()->guest()) return;
-            foreach(static::getRecordEvents() as $event) {
+        if (auth()->guest()) return;
+        foreach (static::getRecordEvents() as $event) {
             static::$event(function ($model) use ($event) {
                 $model->recordActivity($event);
 
             });
         }
+
 
             static::deleting(function ($model) {
                 $model->activity()->delete();

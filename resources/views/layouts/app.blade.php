@@ -60,6 +60,7 @@
         <main class="py-4">
             @yield('content')
         </main>
+        <flash message="Tempoary Message"></flash>
     </div>
 </body>
 </html>
