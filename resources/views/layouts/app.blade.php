@@ -5,16 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+<meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'InTransPortal') }}</title>
+    @if(isset($page_title))
+    <title>{{ config('app.name', 'InTransPortal').' - '.$page_title }}</title>
+    @else
+        <title>{{ config('app.name', 'InTransPortal')}}</title>
+    @endif
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script>
+      window.App = {!! json_encode([
+        'user' => Auth::user(),
+        'signedIn' => Auth::check()
+    ]); !!}
+    </script>
+
+<    <script src="{{ asset('js/app.js') }}" defer>
+</script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -37,30 +51,23 @@
             transform: rotate(-90deg);
         }
 
-        body { padding-bottom: 100px; }
+        body {
+            padding-bottom: 100px;
+            font-size: 14px !important;
+        }
         .level {display: flex; align-items: center; }
         .flex {flex: 1;}
+        [v-cloak] {display: none;}
     </style>
 </head>
 <body>
-@if(Session::has('success'))
-    <div class="alert alert-success">
-        {{Session::get('success')}}
-    </div>
-@endif
-
-@if(Session::has('fail'))
-    <div class="alert alert-danger">
-        {{Session::get('fail')}}
-    </div>
-@endif
     <div id="app">
         @include('layouts.nav')
 
         <main class="py-4">
             @yield('content')
         </main>
-        <flash message="Tempoary Message"></flash>
+        <flash message="{{session('flash')}}"></flash>
     </div>
 </body>
 </html>

@@ -1,4 +1,5 @@
-<div class="card mt-2">
+<reply :attributes="{{$reply}}" inline-template v-cloak>
+<div id="reply-{{$reply->id}}" class="card mt-2">
 
     <div class="card-header">
         <div class="level">
@@ -8,18 +9,33 @@
 @if(auth()->check())
 
 <div>
-    <form action="/replies/{{$reply->id}}/favorite" method="post">
-        {{ csrf_field() }}
-        <button type="submit" class="btn btn-default" {{$reply->isFavorited() ? 'disabled' : ''}}>
-        {{$reply->favorites_count}} {{str_plural('Favorites', $reply->favorites_count)}}</button>
-    </form>
+  @if(Auth::check())
+    <favorite :reply="{{$reply}}"></favorite>
+    @endif
 </div>
 @endif
 </div>
 </div>
 
 <div class="card-body">
-    {!! nl2br(e($reply->body)) !!}
+    <div v-if="editing">
+       <div class="form-group">
+           <textarea class="form-control" v-model="body"></textarea>
+           <button class="btn btn-sm btn-primary" @click="update">Update</button>
+           <button class="btn btn-sm btn-link" @click="editing = false">Cancel</button>
+       </div>
+    </div>
+    <div v-else v-text="body">
+
+    </div>
+</div>
+    @can('update', $reply)
+    <div class="panel-footer level">
+        <button class="btn btn-sm" style="margin-right: 1em" @click="editing = true">Edit</button>
+        <button class="btn btn-danger btn-sm" style="margin-right: 1em" @click="destroy">Delete</button>
+
+    </div>
+        @endcan
 
 </div>
-</div>
+</reply>

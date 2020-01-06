@@ -1,4 +1,5 @@
-<div class="card mt-2">
+<reply :attributes="<?php echo e($reply); ?>" inline-template v-cloak>
+<div id="reply-<?php echo e($reply->id); ?>" class="card mt-2">
 
     <div class="card-header">
         <div class="level">
@@ -9,21 +10,34 @@
 <?php if(auth()->check()): ?>
 
 <div>
-    <form action="/replies/<?php echo e($reply->id); ?>/favorite" method="post">
-        <?php echo e(csrf_field()); ?>
-
-        <button type="submit" class="btn btn-default" <?php echo e($reply->isFavorited() ? 'disabled' : ''); ?>>
-        <?php echo e($reply->favorites_count); ?> <?php echo e(str_plural('Favorites', $reply->favorites_count)); ?></button>
-    </form>
+  <?php if(Auth::check()): ?>
+    <favorite :reply="<?php echo e($reply); ?>"></favorite>
+    <?php endif; ?>
 </div>
 <?php endif; ?>
 </div>
 </div>
 
 <div class="card-body">
-    <?php echo nl2br(e($reply->body)); ?>
+    <div v-if="editing">
+       <div class="form-group">
+           <textarea class="form-control" v-model="body"></textarea>
+           <button class="btn btn-sm btn-primary" @click="update">Update</button>
+           <button class="btn btn-sm btn-link" @click="editing = false">Cancel</button>
+       </div>
+    </div>
+    <div v-else v-text="body">
 
+    </div>
+</div>
+    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('update', $reply)): ?>
+    <div class="panel-footer level">
+        <button class="btn btn-sm" style="margin-right: 1em" @click="editing = true">Edit</button>
+        <button class="btn btn-danger btn-sm" style="margin-right: 1em" @click="destroy">Delete</button>
+
+    </div>
+        <?php endif; ?>
 
 </div>
-</div>
+</reply>
 <?php /**PATH /home/vagrant/Code/intransportal/resources/views/threads/reply.blade.php ENDPATH**/ ?>
