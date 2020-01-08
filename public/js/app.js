@@ -1968,7 +1968,7 @@ __webpack_require__.r(__webpack_exports__);
     addReply: function addReply() {
       var _this = this;
 
-      axios.post(this.endpoint, {
+      axios.post(location.pathname + '/replies', {
         body: this.body
       }).then(function (data) {
         _this.body = '';
@@ -2075,8 +2075,7 @@ __webpack_require__.r(__webpack_exports__);
   mixins: [_mixins_Collection_js__WEBPACK_IMPORTED_MODULE_2__["default"]],
   data: function data() {
     return {
-      dataSet: false,
-      endpoint: location.pathname + '/replies'
+      dataSet: false
     };
   },
   created: function created() {
@@ -2097,7 +2096,11 @@ __webpack_require__.r(__webpack_exports__);
     refresh: function refresh(_ref) {
       var data = _ref.data;
       this.dataSet = data;
-      this.items = data.data;
+      this.items = data.data; //Click event to scroll to top
+
+      $('html, body').animate({
+        scrollTop: 0
+      }, 800);
     }
   }
 });
@@ -31881,10 +31884,7 @@ var render = function() {
         )
       }),
       _vm._v(" "),
-      _c("new-reply", {
-        attrs: { endpoint: this.endpoint },
-        on: { created: _vm.add }
-      }),
+      _c("new-reply", { on: { created: _vm.add } }),
       _vm._v(" "),
       _c("paginator", {
         attrs: { data: _vm.dataSet },

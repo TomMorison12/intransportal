@@ -18,11 +18,11 @@
     import Collection from '../mixins/Collection.js'
     export default {
 
-        components: { Reply, NewReply },
+        components: {Reply, NewReply},
         mixins: [Collection],
         data() {
             return {
-                dataSet:false,
+                dataSet: false,
             }
         },
         created() {
@@ -34,16 +34,21 @@
                 axios.get(this.url(page)).then(this.refresh);
             },
             url(page) {
-                if(!page) {
-                let query = location.search.match(/page=(\d+)/);
-                page = query ? query[1] : 1;
+                if (!page) {
+                    let query = location.search.match(/page=(\d+)/);
+                    page = query ? query[1] : 1;
                 }
-                return location.pathname + '/replies?page='+ page;
+                return location.pathname + '/replies?page=' + page;
             },
             refresh({data}) {
-                    this.dataSet = data;
-                    this.items = data.data;
-                }
+                this.dataSet = data;
+                this.items = data.data;
+
+                //Click event to scroll to top
+                $('html, body').animate({scrollTop: 0}, 800);
+
+
+            }
         }
     }
 </script>

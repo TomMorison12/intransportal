@@ -29,8 +29,12 @@ Route::domain('forum.'.$domain)->group(function() {
     Route::patch('/replies/{reply}', 'RepliesController@update');
 
 });
-Route::get('/','HomeController@index');
-Auth::routes();
-Route::get('profiles/{user}', 'ProfilesController@show')->name('profile');
-Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('photos', 'PhotosController');
+
+Route::domain($domain)->group(function() {
+    Route::get('/','HomeController@index');
+    Auth::routes();
+    Route::get('profiles/{user}', 'ProfilesController@show')->name('profile');
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::resource('photos', 'PhotosController');
+});
+
