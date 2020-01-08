@@ -11,7 +11,7 @@
 |
 */
 
-$domain = parse_url(config('app.url'), PHP_URL_HOST);
+$domain = parse_url('http://intransportal.com', PHP_URL_HOST);
 Route::domain('forum.'.$domain)->group(function() {
     Route::get('/threads/', 'ThreadsController@index');
     Route::get('/threads/create', 'ThreadsController@create');
