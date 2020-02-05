@@ -20,7 +20,7 @@ class FavoritesTest extends TestCase
 
     public function test_guests_may_not_favorite_anything()
     {
-        $this->post(page_url('forum', '/replies/1/favorite'))->assertRedirect('/login');
+        $this->post(page_url('forum', '/replies/1/favorite'))->assertRedirect(page_url(null,'/login'));
     }
 
         public function test_an_authentcated_user_can_favorite_any_reply() {
@@ -30,7 +30,7 @@ class FavoritesTest extends TestCase
 
             $this->post(page_url('forum','replies/'. $reply->id. '/favorite'));
 
-            $this->withoutExceptionHandling()->assertCount(1, $reply->favorites);
+            $this->assertCount(1, $reply->favorites);
         }
 
         public function test_an_authentcated_user_can_unfavorite_any_reply() {
@@ -41,10 +41,10 @@ class FavoritesTest extends TestCase
 
 
             $reply->favorite();
-            $this->withoutExceptionHandling()->assertCount(1, $reply->favorites);
+            $this->assertCount(1, $reply->favorites);
             $this->delete(page_url('forum', '/replies/'. $reply->id. '/favorite'));
 
-            $this->withoutExceptionHandling()->assertCount(0, $reply->fresh()->favorites);
+            $this->assertCount(0, $reply->fresh()->favorites);
 
     }
         function test_an_authenticated_user_may_only_favorite_a_reply_once() {
@@ -58,7 +58,7 @@ class FavoritesTest extends TestCase
                 $this->fail('Did not expect to insert row twice');
             }
 
-            $this->withoutExceptionHandling()->assertCount(1, $reply->favorites);
+            $this->assertCount(1, $reply->favorites);
         }
 
 

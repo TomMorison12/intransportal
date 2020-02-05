@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Providers;
-
+use App\Listener\NotifyThreadSubscribers;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -18,6 +18,9 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        App\Events\ThreadHasNewReply::class => [
+            NotifyThreadSubscribers::class
+        ]
     ];
 
     /**

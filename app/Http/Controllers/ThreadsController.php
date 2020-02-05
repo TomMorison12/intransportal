@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Filters\ThreadFilters;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Thread;
 use App\Channel;
@@ -41,6 +42,7 @@ class ThreadsController extends Controller
      */
     public function create()
     {
+
         return view('threads.create');
 
     }
@@ -77,12 +79,17 @@ class ThreadsController extends Controller
      */
     public function show($channelSlug, Thread $thread)
     {
+        if (auth()->check()) {
+            auth()->user()->read($thread);
+        }
         return view('threads.show', compact('thread'));
     }
 
     /**
      * Show the form for editing the specified resource.
-     *
+     *        $key= sprintf("users.%s.visits.%s", auth()->id(), $thread->id);
+
+    cache()->forever($key, Carbon::now());
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */

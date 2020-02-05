@@ -18,7 +18,7 @@ class CreateThreadsTest extends TestCase
     function test_guests_may_not_create_threads() {
 
         $thread = make('App\Thread');
-        $this->withExceptionHandling()->post(page_url('forum','threads'), $thread->toArray())->assertRedirect('/login');
+        $this->post(page_url('forum','/threads'), $thread->toArray())->assertRedirect(page_url(null, '/login'));
 
 
     }
@@ -50,7 +50,7 @@ class CreateThreadsTest extends TestCase
     function test_guests_cannot_delete_threads() {
 
         $thread = create('App\Thread');
-        $this->delete($thread->path())->assertRedirect('/login');
+        $this->delete($thread->path())->assertRedirect(page_url(null, '/login'));
 
         $this->signIn();
         $this->delete($thread->path())->assertStatus(403);
@@ -78,7 +78,7 @@ class CreateThreadsTest extends TestCase
 
         public function publishThread($overrides) {
 
-                $this->withExceptionHandling()->signIn();
+                $this->signIn();
 
                 $thread = make('App\Thread', $overrides);
 
