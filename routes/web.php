@@ -11,11 +11,11 @@
 |
 */
 
-<<<<<<< HEAD
+
 $domain = parse_url('http://intransportal.com', PHP_URL_HOST);
-=======
+
 $domain = parse_url('http://intransportal.test', PHP_URL_HOST);
->>>>>>> 1e8671388b7bf6ad272f60548ab32640f1c5eb6d
+
 Route::domain('forum.'.$domain)->group(function() {
     Route::get('/threads', 'ThreadsController@index');
     Route::get('/threads/create', 'ThreadsController@create');
