@@ -45,8 +45,9 @@
 
         <main class="py-4">
             <?php echo $__env->yieldContent('content'); ?>
+            <flash message="<?php echo e(session('flash')); ?>"></flash>
         </main>
-        <flash message="<?php echo e(session('flash')); ?>"></flash>
+
     </div>
     <script
         src="http://code.jquery.com/jquery-3.4.1.min.js"

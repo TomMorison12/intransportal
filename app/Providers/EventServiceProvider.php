@@ -19,7 +19,9 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
         App\Events\ThreadHasNewReply::class => [
-            NotifyThreadSubscribers::class
+            NotifyThreadSubscribers::class,
+            NotifyMentionedUsers::class
+
         ]
     ];
 

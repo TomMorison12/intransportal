@@ -16,11 +16,13 @@
 </template>
 
 <script>
+    import Tribute from "tributejs";
 	export default {
 	    props: ['endpoint'],
         data() {
             return {
-                body: null
+                body: null,
+
 
             }
         },
@@ -29,16 +31,42 @@
                 return window.App.signedIn;
             }
         },
+
         methods: {
             addReply() {
-                axios.post(location.pathname + '/replies', { body: this.body}).then(data => {
+                axios.post(location.pathname + '/replies', {body: this.body})
+                    .catch((error) => {
+                        flash(error.response.data, 'danger');
+                        console.log(error);
+
+
+                    }).then(data => {
                     this.body = '';
-                    flash("Your reply has been added");
                     this.$emit("created", data.data);
-                });
-            }
+                    flash("Your reply has been added");
+
+
+                })
+            },
+
+        },
+        mounted() {
+
+
+
+              axios.get(window.location + 'api/users').then(function(data) {
+                  let tribute = new Tribute({
+                      values: data.data
+                  });
+
+
+                  tribute.attach(document.getElementById('body'));
+              });
+
         }
+
 	}
+
 </script>
 
 

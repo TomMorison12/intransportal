@@ -19,12 +19,12 @@
                         <li class="dropdown-submenu"><a href="#" tabindex="-2" aria-haspopup="true">Browse</a>
 
                             <ul class="dropdown-menu">
-                                <li><a href="{{url('threads')}}">All threads</a></li>
+                                <li><a href="{{page_url('forum', 'threads')}}">All threads</a></li>
                                 @if(auth()->check())
-                                    <li><a href="{{url('threads?by='. Auth::user()->name)}}">My threads</a></li>
+                                    <li><a href="{{page_url('forum', 'threads?by='. Auth::user()->name)}}">My threads</a></li>
                                 @endif
-                                <li><a href="{{url('threads?popular=1')}}">Popular threads</a></li>
-                                <li><a href="{{url('threads?unanswered=1')}}">Unanswered threads</a></li>
+                                <li><a href="{{page_url('forum','threads?popular=1')}}">Popular threads</a></li>
+                                <li><a href="{{page_url('forum', 'threads?unanswered=1')}}">Unanswered threads</a></li>
                             </ul>
 
 
@@ -33,7 +33,7 @@
                                aria-expanded="false">Channels</a>
                             <ul class="dropdown-menu">
                                 @foreach($channels as $channel)
-                                    <li><a href="{{url('/threads/'.$channel->slug)}}">{{$channel->name}}</a></li>
+                                    <li><a href="{{page_url('forum','/threads/'.$channel->slug)}}">{{$channel->name}}</a></li>
                                 @endforeach
 
                             </ul>

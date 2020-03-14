@@ -7,7 +7,8 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
 
@@ -17,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'avatar_path'
     ];
 
     /**
@@ -45,6 +46,9 @@ class User extends Authenticatable
     public function threads() {
         return $this->hasMany(Thread::class)->latest();
     }
+    public function latestReply() {
+        return $this->hasOne(Reply::class)->latest();
+    }
 
     public function activity() {
         return $this->hasMany(Activity::class);
@@ -61,4 +65,5 @@ class User extends Authenticatable
             Carbon::now()
         );
     }
+
 }

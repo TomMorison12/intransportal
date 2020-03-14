@@ -4,26 +4,30 @@ namespace App\Http\Controllers;
 
 
 use App\Filters\ThreadFilters;
-use Carbon\Carbon;
+
+use App\Trending;
 use Illuminate\Http\Request;
 use App\Thread;
 use App\Channel;
 use Auth;
+use Illuminate\Support\Facades\Redis;
+
 class ThreadsController extends Controller
 {
 
     public function __construct() {
-        $this->middleware('auth')->except(['index', 'show']);
+        $this->middleware('verified')->except(['index', 'show']);
     }
 
     /**
      * Display a listing of the resource.
      *
      * @param Channel $channel
-     * @param \App\Http\Controllers\ThreadFilters $filter
+     * @param ThreadFilters $filter
+     * @param Trending $trending
      * @return \Illuminate\Http\Response
      */
-    public function index(Channel $channel, ThreadFilters $filter)
+    public function index(Channel $channel, ThreadFilters $filter, Trending $trending)
     {
 
         $threads = $this->getThread($channel, $filter);
@@ -31,8 +35,15 @@ class ThreadsController extends Controller
             return $threads;
         }
 
+        $trending->get();
 
-        return view('threads.index', compact('threads'))->with(['page_title' => 'Forum Index']);
+
+        return view('threads.index', [
+            'threads' => $threads,
+            'trending' => $trending->get(),
+            'page_title' => 'Forum Index'
+
+        ]);
     }
 
     /**
@@ -47,17 +58,12 @@ class ThreadsController extends Controller
 
     }
 
-    /**
-//     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        $this->validate(request(), [
-            'title' =>'required',
-            'body' => 'required',
+        request()->validate([
+            'title' =>'required|spamfree',
+            'body' => 'required|spamfree',
             'channel_id' => 'required|exists:channels,id'
         ]);
        $thread = Thread::create([
@@ -74,15 +80,22 @@ class ThreadsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-
+     * @param $channelSlug
+     * @param Thread $thread
+     * @param Trending $trending
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function show($channelSlug, Thread $thread)
+    public function show($channelSlug, Thread $thread, Trending $trending)
     {
         if (auth()->check()) {
             auth()->user()->read($thread);
+
         }
-        return view('threads.show', compact('thread'));
+        $trending->push($thread);
+
+        $thread->views()->record();
+
+        return view('threads.show', compact('thread'))->with(['page_title' => $thread->title]);
     }
 
     /**
@@ -136,7 +149,7 @@ class ThreadsController extends Controller
             $threads->where('channel_id', $channel->id);
         }
 
-        return $threads->get();
+        return $threads->paginate(10);
 
     }
 }

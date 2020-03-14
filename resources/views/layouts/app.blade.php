@@ -44,8 +44,9 @@
 
         <main class="py-4">
             @yield('content')
+            <flash message="{{session('flash')}}"></flash>
         </main>
-        <flash message="{{session('flash')}}"></flash>
+
     </div>
     <script
         src="http://code.jquery.com/jquery-3.4.1.min.js"

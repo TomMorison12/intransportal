@@ -20,12 +20,12 @@
                         <li class="dropdown-submenu"><a href="#" tabindex="-2" aria-haspopup="true">Browse</a>
 
                             <ul class="dropdown-menu">
-                                <li><a href="<?php echo e(url('threads')); ?>">All threads</a></li>
+                                <li><a href="<?php echo e(page_url('forum', 'threads')); ?>">All threads</a></li>
                                 <?php if(auth()->check()): ?>
-                                    <li><a href="<?php echo e(url('threads?by='. Auth::user()->name)); ?>">My threads</a></li>
+                                    <li><a href="<?php echo e(page_url('forum', 'threads?by='. Auth::user()->name)); ?>">My threads</a></li>
                                 <?php endif; ?>
-                                <li><a href="<?php echo e(url('threads?popular=1')); ?>">Popular threads</a></li>
-                                <li><a href="<?php echo e(url('threads?unanswered=1')); ?>">Unanswered threads</a></li>
+                                <li><a href="<?php echo e(page_url('forum','threads?popular=1')); ?>">Popular threads</a></li>
+                                <li><a href="<?php echo e(page_url('forum', 'threads?unanswered=1')); ?>">Unanswered threads</a></li>
                             </ul>
 
 
@@ -34,7 +34,7 @@
                                aria-expanded="false">Channels</a>
                             <ul class="dropdown-menu">
                                 <?php $__currentLoopData = $channels; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $channel): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <li><a href="<?php echo e(url('/threads/'.$channel->slug)); ?>"><?php echo e($channel->name); ?></a></li>
+                                    <li><a href="<?php echo e(page_url('forum','/threads/'.$channel->slug)); ?>"><?php echo e($channel->name); ?></a></li>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                             </ul>
