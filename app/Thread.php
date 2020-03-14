@@ -4,10 +4,11 @@ namespace App;
 
 use App\Providers\App\Events\ThreadHasNewReply;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Redis;
 
 class Thread extends Model
 {
-    use RecordActivity;
+    use RecordActivity, RecordsViews;
     protected $guarded = [];
 protected $appends = ['isSubscribedTo'];
 
@@ -43,6 +44,8 @@ protected $appends = ['isSubscribedTo'];
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+
 
     public function addReply($reply) {
         $reply = $this->replies()->create($reply);
@@ -95,8 +98,6 @@ protected $appends = ['isSubscribedTo'];
 
         return $this->updated_at > cache($key);
     }
-
-
 
 
 }

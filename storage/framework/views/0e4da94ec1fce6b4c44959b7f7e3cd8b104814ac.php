@@ -2,34 +2,24 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <?php $__empty_1 = true; $__currentLoopData = $threads; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $thread): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+              <?php echo $__env->make('threads._list', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                <?php echo e($threads->render()); ?>
+
+            </div>
+            <div class="col-md-4">
                 <div class="card">
-                    <div class="card-header">
-                    <div class="level">
-                    <h3 class="flex">
-                        <a href="<?php echo e($thread->path()); ?>">
-                        <?php if(auth()->check() && $thread->hasUpdatesFor(auth()->user())): ?>
-                            <strong>
-                                <?php echo e($thread->title); ?>
-
-                            </strong>
-                            <?php else: ?>
-                                <?php echo e($thread->title); ?>
-
-                            <?php endif; ?>
-                           </a></h3>
-                    <strong><a href="<?php echo e($thread->path()); ?>"><?php echo e($thread->replies_count); ?> <?php echo e(str_plural('reply', $thread->replies_count)); ?></a></strong>
-                    </div>
+                    <div class="card-heading">
+                        Trending Threads
                     </div>
                     <div class="card-body">
-                                <div class="body"><?php echo e($thread->body); ?></div>
+                        <ul class="list-group">
+                       <?php $__currentLoopData = $trending; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $thread): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <li class="list-group-item"><a href="<?php echo e(url($thread->path)); ?>"><?php echo e($thread->title); ?></a></li>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </ul>
 
-                    </div>
+                   </div>
                 </div>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
-                <p>There are no relevant results at this time</p>
-
-                <?php endif; ?>
             </div>
         </div>
     </div>

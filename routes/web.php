@@ -20,8 +20,8 @@ Route::domain('forum.'.$domain)->group(function() {
     Route::post('/threads', 'ThreadsController@store');
     Route::get('/threads/{channel}/{thread}/replies','RepliesController@index');
     Route::post('/threads/{channel}/{thread}/replies','RepliesController@store');
-    Route::post('/threads/{channel}/{thread}/subscribe', 'ThreadSubscriptionsController@store')->middleware('auth');
-    Route::delete('/threads/{channel}/{thread}/subscribe', 'ThreadSubscriptionsController@destroy')->middleware('auth');
+    Route::post('/threads/{channel}/{thread}/subscribe', 'ThreadSubscriptionsController@store')->middleware('verified');
+    Route::delete('/threads/{channel}/{thread}/subscribe', 'ThreadSubscriptionsController@destroy')->middleware('verified');
     Route::get('/threads/{channel}', 'ThreadsController@index');
     Route::patch('/replies/{reply}', 'RepliesController@update');
     Route::delete('/replies/{reply}', 'RepliesController@destroy');
@@ -31,7 +31,11 @@ Route::domain('forum.'.$domain)->group(function() {
     Route::patch('/replies/{reply}', 'RepliesController@update');
 
     Route::get('profiles/{user}/notifications', 'UserNotificationsControlller@index');
-    Auth::routes();
+    Route::get('api/users', 'Api\UsersController@index');
+
+
+
+    Auth::routes(['verify' => true]);
 
 });
 
@@ -42,6 +46,8 @@ Route::domain($domain)->group(function() {
     Route::delete('profiles/{user}/notifications/{notification}', 'UserNotificationsControlller@destroy');
     Route::get('profiles/{user}/notifications', 'UserNotificationsControlller@index');
     Route::get('/home', 'HomeController@index')->name('home');
+    Route::post('api/users/{user}/avatar', 'Api\UserAvatarController@store');
+    Route::post('api/category/add', 'CategoryController@store');
     Route::resource('photos', 'PhotosController');
 });
 

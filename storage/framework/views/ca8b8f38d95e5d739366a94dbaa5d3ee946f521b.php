@@ -6,6 +6,9 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="level">
+                            <?php if($thread->creator->avatar_path): ?>
+                            <img src="<?php echo e(asset('/storage/'.$thread->creator->avatar_path)); ?>" width="25" height="25" class="mr-1" />
+                            <?php endif; ?>
                             <span class="flex"><a href="<?php echo e(page_url(null, 'profiles/'.$thread->creator->name)); ?>"><?php echo e($thread->creator->name); ?></a> posted <?php echo e($thread->title); ?></span>
                             <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('update', $thread)): ?>
                             <form action="<?php echo e($thread->path()); ?>" method="post">

@@ -20,7 +20,16 @@ class ReplyPolicy
  public function update(User $user, Reply $reply) {
 
      return $reply->user_id == $user->id;
-     
 
+
+ }
+
+ public function create(User $user) {
+    $latestReply = $user->fresh()->latestReply;
+
+      if(!$latestReply) return true;
+return ! $latestReply->wasJustPublished();
+
+     return false;
  }
 }

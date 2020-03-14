@@ -5,6 +5,7 @@ namespace Tests\Unit;
 use App\Notifications\ThreadWasUpdated;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Redis;
 use Tests\TestCase;
 
 use Illuminate\Foundation\Testing\WithFaker;
@@ -118,5 +119,24 @@ class ThreadTest extends TestCase
         cache()->forever(auth()->user()->visitedThreadCacheKey($thread),\Carbon\Carbon::now());
 
         $this->assertFalse($thread->hasUpdatesFor(auth()->user()));
+    }
+
+    public function test_a_thread_records_each_visit() {
+        $thread = make('App\Thread', ['id' => 1]);
+
+        $thread->views()->reset();
+//        $thread->resetViews();
+
+        $this->assertSame(0, $thread->views()->count());
+
+        $thread->views()->record();
+
+//
+        $this->assertEquals(1, $thread->views()->count());
+
+        $thread->views()->record();
+//
+        $this->assertEquals(2, $thread->views()->count());
+
     }
 }
