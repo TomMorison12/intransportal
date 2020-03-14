@@ -33,29 +33,7 @@
 
     <!-- Styles -->
     <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
-    <style type="text/css">
-        .navbar-nav li:hover > ul.dropdown-menu {
-            display: block;
-        }
-        .dropdown-submenu {
-            position:relative;
-        }
-        .dropdown-submenu>.dropdown-menu {
-            top: 0;
-            left: 100%;
-            margin-top:-6px;
-        }
-
-        /* rotate caret on hover */
-        .dropdown-menu > li > a:hover:after {
-            text-decoration: underline;
-            transform: rotate(-90deg);
-        }
-
-        body {
-            padding-bottom: 100px;
-            font-size: 14px !important;
-        }
+    <style>
         .level {display: flex; align-items: center; }
         .flex {flex: 1;}
         [v-cloak] {display: none;}
@@ -70,6 +48,11 @@
         </main>
         <flash message="<?php echo e(session('flash')); ?>"></flash>
     </div>
+    <script
+        src="http://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 </html>
 <?php /**PATH /home/vagrant/Code/intransportal/resources/views/layouts/app.blade.php ENDPATH**/ ?>

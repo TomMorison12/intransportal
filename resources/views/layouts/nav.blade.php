@@ -24,6 +24,7 @@
                                     <li><a href="{{url('threads?by='. Auth::user()->name)}}">My threads</a></li>
                                 @endif
                                 <li><a href="{{url('threads?popular=1')}}">Popular threads</a></li>
+                                <li><a href="{{url('threads?unanswered=1')}}">Unanswered threads</a></li>
                             </ul>
 
 
@@ -38,7 +39,7 @@
                             </ul>
                         </li>
                         @if(auth()->check())
-                            <li class="list-group-item"><a href="{{url('threads/create')}}">Create Thread</a></li>
+                            <li class="list-group-item"><a href="{{page_url('forum','threads/create')}}">Create Thread</a></li>
                         @endif
                     </ul>
 
@@ -52,6 +53,7 @@
         <ul class="navbar-nav ml-auto">
             <!-- Authentication Links -->
             @guest
+
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                 </li>
@@ -61,7 +63,9 @@
                     </li>
                 @endif
             @else
+                <user-notifications></user-notifications>
                 <li class="nav-item dropdown">
+
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->name }} <span class="caret"></span>
                     </a>

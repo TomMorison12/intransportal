@@ -2,8 +2,11 @@
 
 namespace Tests\Unit;
 
+use App\Notifications\ThreadWasUpdated;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Support\Facades\Notification;
 use Tests\TestCase;
+
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -64,5 +67,56 @@ class ThreadTest extends TestCase
         $thread = create('App\Thread');
 
         $this->assertInstanceOf('App\Channel', $thread->channel);
+    }
+
+    function test_a_thread_can_be_subscribed_to() {
+
+        $thread = create('App\Thread');
+        $this->signIn();
+        $thread->subscribe();
+        $this->assertEquals(1, $thread->subscriptions()->where('user_id', auth()->id())->count());
+
+
+    }
+
+    function test_a_thread_can_be_unsubscribed_from() {
+        $thread = create('App\Thread');
+        $thread->subscribe($userId = 1);
+        $thread->unsubscribe($userId = 1);
+
+        $this->assertCount(0, $thread->subscriptions);
+    }
+
+    function test_it_knows_when_the_authenticated_user_subscribed_to_it() {
+        $this->signIn();
+        $thread = create('App\Thread');
+        $this->assertFalse($thread->isSubscribedTo);
+        $thread->subscribe();
+        $this->assertTrue($thread->isSubscribedTo);
+    }
+
+    public function test_it_notifies_all_subscribers_when_a_reply_is_added() {
+        Notification::fake();
+        $this->signIn()->thread->subscribe()->addReply([
+            'body' => 'fooBar',
+            'user_id' =>  999
+        ]);
+
+        Notification::assertSentTo(auth()->user(), ThreadWasUpdated::class);
+
+
+    }
+
+    function test_a_thread_can_check_if_an_Authenticated_user_read_all_replies() {
+        $this->signIn();
+
+        $thread = create('App\Thread');
+
+        $this->assertTrue($thread->hasUpdatesFor(auth()->user()));
+
+
+        cache()->forever(auth()->user()->visitedThreadCacheKey($thread),\Carbon\Carbon::now());
+
+        $this->assertFalse($thread->hasUpdatesFor(auth()->user()));
     }
 }

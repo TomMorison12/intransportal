@@ -41,6 +41,9 @@
                     <div class="card-body">
                         This thread was published <?php echo e($thread->created_at->diffForHumans()); ?> by <a href="#"><?php echo e($thread->creator->name); ?></a> and currently has <span v-text="repliesCount"></span> <?php echo e(str_plural('reply', $thread->replies_count)); ?>
 
+                        <p>
+                        <subscribe-button :active="<?php echo e(json_encode($thread->isSubscribedTo)); ?>"></subscribe-button>
+                        </p>
                     </div>
                 </div>
             </div>

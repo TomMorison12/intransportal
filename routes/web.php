@@ -11,15 +11,21 @@
 |
 */
 
+<<<<<<< HEAD
 $domain = parse_url('http://intransportal.com', PHP_URL_HOST);
+=======
+$domain = parse_url('http://intransportal.test', PHP_URL_HOST);
+>>>>>>> 1e8671388b7bf6ad272f60548ab32640f1c5eb6d
 Route::domain('forum.'.$domain)->group(function() {
-    Route::get('/threads/', 'ThreadsController@index');
+    Route::get('/threads', 'ThreadsController@index');
     Route::get('/threads/create', 'ThreadsController@create');
     Route::get('/threads/{channel}/{thread}', 'ThreadsController@show');
     Route::delete('/threads/{channel}/{thread}', 'ThreadsController@destroy');
     Route::post('/threads', 'ThreadsController@store');
     Route::get('/threads/{channel}/{thread}/replies','RepliesController@index');
     Route::post('/threads/{channel}/{thread}/replies','RepliesController@store');
+    Route::post('/threads/{channel}/{thread}/subscribe', 'ThreadSubscriptionsController@store')->middleware('auth');
+    Route::delete('/threads/{channel}/{thread}/subscribe', 'ThreadSubscriptionsController@destroy')->middleware('auth');
     Route::get('/threads/{channel}', 'ThreadsController@index');
     Route::patch('/replies/{reply}', 'RepliesController@update');
     Route::delete('/replies/{reply}', 'RepliesController@destroy');
@@ -28,12 +34,17 @@ Route::domain('forum.'.$domain)->group(function() {
     Route::get('/', 'ThreadsController@index');
     Route::patch('/replies/{reply}', 'RepliesController@update');
 
+    Route::get('profiles/{user}/notifications', 'UserNotificationsControlller@index');
+    Auth::routes();
+
 });
 
 Route::domain($domain)->group(function() {
     Route::get('/','HomeController@index');
     Auth::routes();
     Route::get('profiles/{user}', 'ProfilesController@show')->name('profile');
+    Route::delete('profiles/{user}/notifications/{notification}', 'UserNotificationsControlller@destroy');
+    Route::get('profiles/{user}/notifications', 'UserNotificationsControlller@index');
     Route::get('/home', 'HomeController@index')->name('home');
     Route::resource('photos', 'PhotosController');
 });

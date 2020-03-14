@@ -53,7 +53,7 @@ class ReadThreadsTest extends TestCase
         $channel = create('App\Channel');
         $threadInChannel = create('App\Thread', ['channel_id' => $channel->id]);
         $threadNotInChannel = create('App\Thread');
-        $this->withoutExceptionHandling()->get(page_url('forum', '/threads/'.$channel->slug))->assertSee($threadInChannel->title)->assertDontSee($threadNotInChannel->title);
+        $this->get(page_url('forum', '/threads/'.$channel->slug))->assertSee($threadInChannel->title)->assertDontSee($threadNotInChannel->title);
     }
 
     function test_a_user_can_filter_threads_by_any_username() {
@@ -63,7 +63,7 @@ class ReadThreadsTest extends TestCase
 
         $threadNotByJohn = create('App\Thread');
 
-        $this->withoutExceptionHandling()->get(page_url('forum', '/threads?by=JohnDoe'))->assertSee($threadByJohn->title)->assertDontSee($threadNotByJohn->title);
+        $this->get(page_url('forum', '/threads?by=JohnDoe'))->assertSee($threadByJohn->title)->assertDontSee($threadNotByJohn->title);
     }
 
     function test_a_user_can_filter_threads_by_popularity() {
@@ -80,14 +80,25 @@ class ReadThreadsTest extends TestCase
         $this->assertEquals([3,2,0], array_column($response, 'replies_count'));
     }
 
+    function test_a_user_can_filter_threads_that_are_not_answered() {
+        $thread = create('App\Thread');
+        create('App\Reply', ['thread_id' => $thread->id]);
+
+        $response = $this->getJson(page_url('forum', '/threads?unanswered=1'))->json();
+
+        $this->assertCount(1, $response);
+    }
+
     function test_a_user_can_request_all_replies_for_a_thread() {
       $thread = create('App\Thread');
         create('App\Reply', ['thread_id' => $thread->id], 2);
 
        $response = $this->getJson($thread->path(). '/replies')->json();
-       
 
-       $this->assertCount(1, $response['data']);
+
+       $this->assertCount(2, $response['data']);
        $this->assertEquals(2, $response['total']);
     }
+
+
 }

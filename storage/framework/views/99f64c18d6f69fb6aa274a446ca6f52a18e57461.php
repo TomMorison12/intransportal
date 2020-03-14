@@ -25,6 +25,7 @@
                                     <li><a href="<?php echo e(url('threads?by='. Auth::user()->name)); ?>">My threads</a></li>
                                 <?php endif; ?>
                                 <li><a href="<?php echo e(url('threads?popular=1')); ?>">Popular threads</a></li>
+                                <li><a href="<?php echo e(url('threads?unanswered=1')); ?>">Unanswered threads</a></li>
                             </ul>
 
 
@@ -39,7 +40,7 @@
                             </ul>
                         </li>
                         <?php if(auth()->check()): ?>
-                            <li class="list-group-item"><a href="<?php echo e(url('threads/create')); ?>">Create Thread</a></li>
+                            <li class="list-group-item"><a href="<?php echo e(page_url('forum','threads/create')); ?>">Create Thread</a></li>
                         <?php endif; ?>
                     </ul>
 
@@ -53,6 +54,7 @@
         <ul class="navbar-nav ml-auto">
             <!-- Authentication Links -->
             <?php if(auth()->guard()->guest()): ?>
+
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo e(route('login')); ?>"><?php echo e(__('Login')); ?></a>
                 </li>
@@ -62,7 +64,9 @@
                     </li>
                 <?php endif; ?>
             <?php else: ?>
+                <user-notifications></user-notifications>
                 <li class="nav-item dropdown">
+
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         <?php echo e(Auth::user()->name); ?> <span class="caret"></span>
                     </a>

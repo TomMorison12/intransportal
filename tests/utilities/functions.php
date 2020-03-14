@@ -15,7 +15,7 @@ function page_url($subdomain = null, $path) {
 
 
 
-        return 'http://'.$domain.'/'.$path;
+        return 'http://'.$domain.$path;
 
     }
     return "http://{$subdomain}.".env("APP_DOMAIN").'/'.$path;

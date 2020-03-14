@@ -1,7 +1,6 @@
 <template>
-    <div class="alert alert-flash alert-success fade show" role="alert" v-show="show">
+    <div class="alert alert-success alert-flash" role="alert" v-show="show">
         <strong>Success!</strong> {{ body }}
-
     </div>
 </template>
 
@@ -18,32 +17,29 @@
             if (this.message) {
                 this.flash(this.message);
             }
-                window.events.$on('flash', message => {
-                    this.flash(message);
-                })
-
+            window.events.$on(
+                'flash', message => this.flash(message)
+            );
         },
         methods: {
             flash(message) {
-                this.show = true;
                 this.body = message;
+                this.show = true;
                 this.hide();
             },
             hide() {
-                setTimeout(function() {
-
+                setTimeout(() => {
                     this.show = false;
-                }.bind(this), 3000);
+                }, 3000);
             }
         }
     };
 </script>
 
 <style>
-   .alert-flash
-    {
-        position:fixed;
-        right:25px;
-        bottom:25px;
+    .alert-flash {
+        position: fixed;
+        right: 15%;
+        bottom: 25%;
     }
 </style>

@@ -6,7 +6,18 @@
                 <div class="card">
                     <div class="card-header">
                     <div class="level">
-                    <h3 class="flex"><a href="<?php echo e($thread->path()); ?>"><?php echo e($thread->title); ?></a></h3>
+                    <h3 class="flex">
+                        <a href="<?php echo e($thread->path()); ?>">
+                        <?php if(auth()->check() && $thread->hasUpdatesFor(auth()->user())): ?>
+                            <strong>
+                                <?php echo e($thread->title); ?>
+
+                            </strong>
+                            <?php else: ?>
+                                <?php echo e($thread->title); ?>
+
+                            <?php endif; ?>
+                           </a></h3>
                     <strong><a href="<?php echo e($thread->path()); ?>"><?php echo e($thread->replies_count); ?> <?php echo e(str_plural('reply', $thread->replies_count)); ?></a></strong>
                     </div>
                     </div>

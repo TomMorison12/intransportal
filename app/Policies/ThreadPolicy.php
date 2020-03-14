@@ -47,9 +47,7 @@ class ThreadPolicy
     /**
      * Determine whether the user can update the thread.
      *
-     * @param  \App\User  $user
-     * @param  \App\Thread  $thread
-     * @return mixed
+jui8@return mixed
      */
     public function update(User $user, Thread $thread)
     {
