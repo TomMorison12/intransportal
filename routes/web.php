@@ -43,7 +43,7 @@ Route::domain('forum.'.$domain)->group(function() {
 });
 
 Route::domain($domain)->group(function() {
-    Route::get('/','HomeController@index');
+    Route::get('/','ThreadsController@index');
     Auth::routes();
     Route::get('profiles/{user}', 'ProfilesController@show')->name('profile');
     Route::delete('profiles/{user}/notifications/{notification}', 'UserNotificationsControlller@destroy');
