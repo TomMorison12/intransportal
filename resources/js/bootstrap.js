@@ -11,17 +11,28 @@ window.$ = window.jQuery = require('jquery');
  * using reactive data binding and reusable components. Vue's API is clean
  * and simple, leaving you to focus on building your next great project.
  */
+let authorizations = require('./authorizations');
 
 window.Vue = require('vue');
-window.Vue.prototype.authorize = function(handler) {
-    if(! window.App.user) return false;
-    return handler(window.App.user)
+window.Vue.prototype.authorize = function(...params) {
+    if(! window.App.signedIn) return false;
+
+
+    if(typeof params[0] === 'string') {
+      return  authorizations[params[0]](params[1]);
+    }
+
+    return params[0](window.App.user);
 };
+
+Vue.prototype.signedIn = window.App.signedIn;
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
+
+
 
 window.axios = require('axios');
 

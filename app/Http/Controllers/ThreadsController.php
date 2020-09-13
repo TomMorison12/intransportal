@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 
 use App\Filters\ThreadFilters;
 
+use App\Rules\Recaptcha;
 use App\Trending;
 use Illuminate\Http\Request;
 use App\Thread;
 use App\Channel;
-use Auth;
-use Illuminate\Support\Facades\Redis;
+
+
 
 class ThreadsController extends Controller
 {
@@ -35,9 +36,6 @@ class ThreadsController extends Controller
             return $threads;
         }
 
-        $trending->get();
-
-
         return view('threads.index', [
             'threads' => $threads,
             'trending' => $trending->get(),
@@ -59,19 +57,25 @@ class ThreadsController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(Request $request, Recaptcha $recaptcha)
     {
+
+
         request()->validate([
             'title' =>'required|spamfree',
             'body' => 'required|spamfree',
-            'channel_id' => 'required|exists:channels,id'
+            'channel_id' => 'required|exists:channels,id',
+            'g-recaptcha-response' => ['required', $recaptcha]
         ]);
+
        $thread = Thread::create([
-            'user_id' => Auth::user()->id,
+            'user_id' => auth()->user()->id,
             'channel_id' => request('channel_id'),
             'title' => request('title'),
             'body' => request('body')
+
         ]);
+
 
 
        return redirect($thread->path())->with('flash', 'Your thread has been published');
@@ -111,16 +115,18 @@ class ThreadsController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+
+
+    public function update($channel, Thread $thread)
     {
-        //
+        if(request()->has('locked'))
+        {
+            if(! auth()->user()->isAdmin()) {
+                return response('', 403);
+            }
+
+           $thread->locked ? $thread->unlock() : $thread->lock();
+        }
     }
 
     /**

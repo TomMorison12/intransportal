@@ -1,13 +1,14 @@
 <?php
 
-namespace Tests\Unit;
+namespace tests\Unit;
 
-use App\City;
+use App\Category;
+
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Tests\TestCase;
+use tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Country;
+
 class CategoryTest extends TestCase
 {
     use DatabaseMigrations;
@@ -16,18 +17,21 @@ class CategoryTest extends TestCase
      *
      * @return void
      */
-    public function test_a_category_can_be_three_levels_deep()
-    {
-        // Given we have a first-level category (couintry)
-        // That has many cities
-        // Which has many modes/lines
-        // theey all have working relationships
 
-       $country = create('App\Country', ['name' => 'United Kingdom']);
-       $city = create('App\City', ['name' => 'London', 'country_id' => $country->id]);
-       $mode = create('App\Mode', ['name' => 'London Underground', 'city_id' => $city->id]);
+    function test_a_subcategory_belongs_to_a_category() {
+        $category = create('App\Category');
+        $subcategory = create('App\Subcategory', ['category_id' => $category->id]);
+        $this->assertInstanceOf(Category::class, $subcategory->category);
+    }
 
-        $this->assertInstanceOf(City::class, $mode->city);
+    public function test_a_subcategory_can_be_a_city_or_a_mode() {
+        // given we have a category
+        // that can have many subcateogories
+        // the given subcategori is a polymooirphic relation that can bhe eiuther a city or a mode
+
+        $city = create('App\City');
+        $subcategory = create('App\Subcategory', ['subcategory_type' => 'App\City', 'subcategory_id' => $city->id, 'name' => $city->name]);
+        $this->assertInstanceOf();
 
     }
 }

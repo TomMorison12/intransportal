@@ -1,5 +1,5 @@
 <template>
-
+<div>
 <!--        <form method="post" action="{{$thread->path() . '/replies'}}">-->
 <!--                        {{ csrf_field() }}-->
     <div v-if="signedIn">
@@ -26,11 +26,6 @@
 
             }
         },
-        computed: {
-            signedIn() {
-                return window.App.signedIn;
-            }
-        },
 
         methods: {
             addReply() {
@@ -54,7 +49,7 @@
 
 
 
-              axios.get(window.location + 'api/users').then(function(data) {
+              axios.get(window.location.origin + '/api/users').then(function(data) {
                   let tribute = new Tribute({
                       values: data.data
                   });

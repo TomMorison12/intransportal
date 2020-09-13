@@ -1,8 +1,8 @@
 <?php
 
-namespace Tests\Feature;
+namespace tests\Feature;
 
-use Tests\TestCase;
+use tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 
@@ -63,7 +63,7 @@ class ReadThreadsTest extends TestCase
 
         $threadNotByJohn = create('App\Thread');
 
-        $this->get(page_url('forum', '/threads?by=JohnDoe'))->assertSee($threadByJohn->title)->assertDontSee($threadNotByJohn->title);
+        $this->withoutExceptionHandling()->get(page_url('forum', '/threads?by=JohnDoe'))->assertSee($threadByJohn->title)->assertDontSee($threadNotByJohn->title);
     }
 
     function test_a_user_can_filter_threads_by_popularity() {

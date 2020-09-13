@@ -27,11 +27,10 @@
                 this.level = data.level;
                 this.show = true;
                 this.hide();
-            },
-            hide() {
+            },            hide() {
                 setTimeout(() => {
                     this.show = false;
-                }, 3000);
+                }, 30000);
             }
         }
     };

@@ -1,9 +1,9 @@
 <?php
 
-namespace Tests\Feature;
+namespace tests\Feature;
 
 use Exception;
-use Tests\TestCase;
+use tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -20,14 +20,8 @@ class ParticipateInForumTest extends TestCase
 
     function test_unauthenticated_users_may_not_participate_in_thread()
     {
-
-        $this->withoutExceptionHandling()->expectException(\Illuminate\Auth\AuthenticationException::class);
-        $this->post(page_url('forum', '/threads/some-channel/1/replies'), []);
-
-    }
-
-    function test_an_authenticated_user_can_pariticipate_in_forum_threads()
-    {
+       $thread = create('App\Thread');
+        $this->post($thread->path().'/replies', [])->assertRedirect(page_url('forum', 'email/verify'));
 
         $user = factory('App\User')->create();
 
@@ -56,7 +50,7 @@ class ParticipateInForumTest extends TestCase
     {
         $reply = create('App\Reply');
 
-        $this->delete(page_url('forum', 'replies/' . $reply->id))->assertRedirect(page_url(null, '/login'));
+        $this->delete(page_url('forum', 'replies/' . $reply->id))->assertRedirect(page_url('forum', 'email/verify'));
         $this->signIn()->delete(page_url('forum', 'replies/' . $reply->id))->assertStatus(403);
     }
 
@@ -84,7 +78,7 @@ class ParticipateInForumTest extends TestCase
     {
         $reply = create('App\Reply');
 
-        $this->patch(page_url('forum', 'replies/' . $reply->id))->assertRedirect(page_url(null, '/login'));
+        $this->patch(page_url('forum', 'replies/' . $reply->id))->assertRedirect(page_url('forum', 'email/verify'));
         $this->signIn()->patch(page_url('forum', 'replies/' . $reply->id))->assertStatus(403);
     }
 

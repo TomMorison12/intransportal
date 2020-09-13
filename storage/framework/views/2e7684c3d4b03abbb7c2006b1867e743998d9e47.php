@@ -38,6 +38,7 @@
         .flex {flex: 1;}
         [v-cloak] {display: none;}
     </style>
+    <?php echo $__env->yieldContent('head'); ?>
 </head>
 <body>
     <div id="app">

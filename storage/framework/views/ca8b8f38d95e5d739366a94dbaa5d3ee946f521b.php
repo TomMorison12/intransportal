@@ -1,5 +1,5 @@
 <?php $__env->startSection('content'); ?>
-    <thread-view :initial-replies-count="<?php echo e($thread->replies_count); ?>" inline-template>
+    <thread-view :thread="<?php echo e($thread); ?>" inline-template>
     <div class="container">
         <div class="row">
             <div class="col-md-8">
@@ -45,7 +45,8 @@
                         This thread was published <?php echo e($thread->created_at->diffForHumans()); ?> by <a href="#"><?php echo e($thread->creator->name); ?></a> and currently has <span v-text="repliesCount"></span> <?php echo e(str_plural('reply', $thread->replies_count)); ?>
 
                         <p>
-                        <subscribe-button :active="<?php echo e(json_encode($thread->isSubscribedTo)); ?>"></subscribe-button>
+                        <subscribe-button v-if="signedIn" :active="<?php echo e(json_encode($thread->isSubscribedTo)); ?>"></subscribe-button>
+                        <button class="btn btn-default" v-if="authorize('isAdmin')" @click="lock" v-text="locked ? 'Unlock' : 'Lock'"></button>
                         </p>
                     </div>
                 </div>

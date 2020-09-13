@@ -26,10 +26,13 @@ class RepliesController extends Controller
      * @param $channelId
      * @param Thread $thread
      * @param CreatePostForm $form
-     * @return \Illuminate\Database\Eloquent\Model|\Illuminate\Http\RedirectResponse
+
      */
     public function store($channelId, Thread $thread, CreatePostForm $form)
     {
+        if($thread->locked) {
+            return response('The thhread is locked', 422);
+        }
            return $thread->addReply([
                 'body' => request('body'),
 

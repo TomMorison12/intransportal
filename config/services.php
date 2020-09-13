@@ -44,6 +44,10 @@ return [
         'client_email' => env('FIREBASE_CLIENT_EMAIL', 'e@email.com'),
         'client_id' => env('FIREBASE_CLIENT_ID', ''),
         'client_x509_cert_url' => env('FIREBASE_CLIENT_x509_CERT_URL', ''),
+    ],
+
+    'recaptcha' => [
+        'secret' => env('RECAPTCHA_SECRET')
     ]
 
 ];

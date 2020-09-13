@@ -1,7 +1,7 @@
 <template>
     <div :id="'reply-'+id" class="card mt-2">
 
-    <div class="card-header">
+    <div class="card-header" :class="isBest ? 'bg-success' : 'bg-light'">
         <div class="level">
             <h5 class="flex">
         <a :href="'/profiles'+data.owner.name" v-text="data.owner.name"></a> said <span v-text="ago"></span>
@@ -18,7 +18,7 @@
        <div class="form-group">
            <form action="" @submit="update">
            <textarea class="form-control" v-model="body" required></textarea>
-                <button class="btn btn-sm btn-primary">Update</button>
+                <button type="submit" class="btn btn-sm btn-primary">Update</button>
         <button class="btn btn-sm btn-link" @click="editing = false" type="button">Cancel</button>
     </form>
        </div>
@@ -29,9 +29,13 @@
     </div>
 </div>
 
-    <div class="panel-footer level" v-if="canUpdate">
-        <button class="btn btn-sm" style="margin-right: 1em" @click="editing = true">Edit</button>
-        <button class="btn btn-danger btn-sm" style="margin-right: 1em" @click="destroy">Delete</button>
+    <div class="card-footer level" v-if="authorize('owns', reply) || authorize('owns', reply.thread)">>
+        <div v-if="authorize('owns', data)">
+      <button class="btn btn-primary btn-sm" style="margin-right: 1em" @click="editing = true">Edit</button>
+         <button class="btn btn-danger btn-sm" style="margin-right: 1em" @click="destroy">Delete</button>
+    </div>
+        <button class="btn btn-default btn-sm" style="margin-left: auto" @click="markBestReply" v-if="authorize('updateThread', this.data.thread)">Best reply?</button>
+
 
 
     </div>
@@ -50,20 +54,22 @@
             ago() {
                 return moment(this.data.created_at).fromNow();
             },
-            signedIn() {
-                return window.App.signedIn;
-            },
-
-            canUpdate() {
-             return this.authorize(User => this.data.user_id == window.App.user.id)
-            }
 
         },
+        created() {
+          window.events.$on('best-reply-selected', id => {
+              this.isBest = (id === this.id);
+            });
+        },
+
         data() {
             return {
                 editing: false,
                 body: this.data.body,
-                id: this.data.id
+                id: this.data.id,
+                isBest: this.data.isBest,
+                reply: this.data
+
 
             };
         },
@@ -91,6 +97,12 @@
                 // });
 
 
+            },
+
+            markBestReply() {
+                axios.post('/replies/' + this.data.id + '/best');
+
+                window.events.$emit('best-reply-selected', this.data.id);
             }
         }
     }

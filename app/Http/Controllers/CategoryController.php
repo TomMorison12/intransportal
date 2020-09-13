@@ -2,31 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    public function  __construct()
+
+    public function index() {
+        $categories = Category::orderBy('name', 'asc')->get();
+        return view('categories.index', ['categories' => $categories]);
+    }
+
+
+    public function show(Category $category) {
+        return view('categories.list',  ['country' => $category->name, 'cid' => $category->id]);
+    }
+
+    public function create()
     {
-        $this->middleware('verified');
+        return view('categories.add');
     }
 
-    public function store(Request $request)  {
-        $request->validate([
-            'type' => 'required',
-            'name' => 'required'
-
-        ]);
-
-        if(request()->type == 'Country' || request()->type == 'City' || request()->type === 'Mode') {
-            app('App\\'.request()->type)->create(['name' => request()->title, 'created_by' => auth()->id()]);
-            return response( 'Category added successfully', 200);
-        }
-
-        return response('Whoops! Something went wrong', 422);
 
 
 
-
-    }
 }

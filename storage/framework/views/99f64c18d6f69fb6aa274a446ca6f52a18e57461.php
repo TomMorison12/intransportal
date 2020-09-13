@@ -13,7 +13,7 @@
             <!-- Left Side Of Navbar -->
 
 
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav flex">
                 <li class="dropdown"><a href="#" tabindex="-1" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                                         aria-expanded="false">Forum</a>
                     <ul class="dropdown-menu">
@@ -45,8 +45,15 @@
                     </ul>
 
 
-                <li><a href="#">Wiki</a></li>
-            </ul>
+                <li class="dropdown flex"><a href="#" tabindex="-1" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                          aria-expanded="false">Wiki</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="<?php echo e(route('wiki.index')); ?>">Main page</a></li>
+                    </ul>
+
+               </li>
+
+         </ul>
 
         </div>
 

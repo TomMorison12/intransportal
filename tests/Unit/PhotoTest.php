@@ -1,9 +1,9 @@
 <?php
 
-namespace Tests\Unit;
+namespace tests\Unit;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Tests\TestCase;
+use tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 

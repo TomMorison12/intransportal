@@ -1,9 +1,10 @@
 <?php
 
-namespace Tests\Feature;
+namespace tests\Unit;
 
-use Tests\TestCase;
+use tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+
 
 class ChannelTest extends TestCase
 {

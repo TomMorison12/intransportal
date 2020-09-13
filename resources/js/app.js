@@ -2,12 +2,11 @@
 
 /**
  * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
+ * includes Vue and other libraries. It is a great starting point whn
  * building robust, powerful web applications using Vue and Laravel.
  */
 
 require('./bootstrap');
-
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -19,6 +18,10 @@ Vue.component('thread-view', require('./pages/Thread.vue').default);
 Vue.component('paginator', require('./components/Paginator.vue').default);
 Vue.component('user-notifications', require('./components/UserNotifications.vue').default);
 Vue.component('avatar-form', require('./components/AvatarForm.vue').default);
+Vue.component('modal', require('./components/Modal.vue').default);
+Vue.component('add-category', require('./components/AddCategory.vue').default);
+Vue.component('subcategory', require('./components/Subcategory.vue').default);
+Vue.component('category', require('./components/Category.vue').default);
 const app = new Vue({
     el: '#app'
 });

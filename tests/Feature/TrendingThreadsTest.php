@@ -1,18 +1,24 @@
 <?php
 
-namespace Tests\Feature;
+namespace tests\Feature;
 
 use App\Trending;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Support\Facades\Redis;
 use phpDocumentor\Reflection\Types\Void_;
-use Tests\TestCase;
+use tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class TrendingThreadsTest extends TestCase
 {
     use DatabaseMigrations;
+
+    /**
+     * @var Trending
+     */
+    private $trending;
+
     /**
      * A basic feature test example.
      *

@@ -17251,6 +17251,11 @@ a.text-dark:focus {
           transform: rotate(-90deg);
 }
 
+.navbar-nav > li {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .tribute-container {
   position: absolute;
   top: 0;

@@ -1,3 +1,8 @@
+<?php $__env->startSection('head'); ?>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<?php $__env->stopSection(); ?>
+
+
 <?php $__env->startSection('content'); ?>
     <div class="container">
         <div class="row justify-content-center">
@@ -32,8 +37,11 @@
                           <textarea name="body" class="form-control" id="body" rows="8" required><?php echo e(old('body')); ?></textarea>
                       </div>
 
+                        <div class="form-group">
+                            <div class="g-recaptcha" data-sitekey="6Ld7TrQZAAAAAOUcX0IeREuZ8M6_ZVLQf5j1J43k"></div>
+                        </div>
                         <input type="submit" name="submit" class="btn btn-primary" value="Post" />
-                        <div class="form-hroup">
+                        <div class="form-group">
                             <?php if(count($errors)): ?>
                             <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <ul class="alert alert-danger">

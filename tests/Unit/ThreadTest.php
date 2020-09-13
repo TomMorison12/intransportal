@@ -1,12 +1,12 @@
 <?php
 
-namespace Tests\Unit;
+namespace tests\Unit;
 
 use App\Notifications\ThreadWasUpdated;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Redis;
-use Tests\TestCase;
+use tests\TestCase;
 
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -30,7 +30,7 @@ class ThreadTest extends TestCase
     function test_a_thread_can_make_a_string_path() {
         $thread = create('App\Thread');
 
-        $this->assertEquals(page_url('forum', 'threads/'. $thread->channel->slug.'/'.$thread->id), $thread->path());
+        $this->assertEquals(page_url('forum', 'threads/'. $thread->channel->slug.'/'.$thread->slug), $thread->path());
 
     }
 
@@ -139,4 +139,13 @@ class ThreadTest extends TestCase
         $this->assertEquals(2, $thread->views()->count());
 
     }
+
+    function test_a_thread_may_be_locked() {
+        $this->assertFalse($this->thread->locked);
+
+        $this->thread->lock();
+
+        $this->assertTrue($this->thread->locked);
+    }
+
 }
