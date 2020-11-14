@@ -1,11 +1,9 @@
 <?php
 
-
-
 namespace Database\Factories\App;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Thread;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
 class ThreadFactory extends Factory

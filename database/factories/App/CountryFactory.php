@@ -1,11 +1,9 @@
 <?php
 
-
-
 namespace Database\Factories\App;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Country;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
 class CountryFactory extends Factory

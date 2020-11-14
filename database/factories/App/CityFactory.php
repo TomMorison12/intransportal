@@ -1,12 +1,10 @@
 <?php
 
-
-
 namespace Database\Factories\App;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use App\City;
 use App\Model;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CityFactory extends Factory
 {

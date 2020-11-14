@@ -1,11 +1,9 @@
 <?php
 
-
-
 namespace Database\Factories\App;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Reply;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ReplyFactory extends Factory
 {

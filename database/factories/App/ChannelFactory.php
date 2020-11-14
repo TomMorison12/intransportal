@@ -1,13 +1,11 @@
 <?php
 
-
-
 namespace Database\Factories\App;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Model;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-class Channel extends Factory
+class ChannelFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
