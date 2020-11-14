@@ -8,8 +8,14 @@ export default {
     data() {
         return {
             repliesCount: this.thread.replies_count,
-            locked: this.thread.locked
+            locked: this.thread.locked,
+            editing: false,
+            form: {
+                title: this.thread.title,
+                body: this.thread.body
+            }
         }
+
     },
 
     methods: {
@@ -17,7 +23,20 @@ export default {
             this.locked = ! this.locked;
 
                 axios.patch(window.location, {locked: this.locked});
-            }
+            },
+
+        update() {
+            axios.patch('/threads/' + this.thread.channel.slug + '/' + this.thread.slug, {
+                title: this.form.title,
+                body: this.form.body
+            }).then(() => {
+                this.editing = false;
+                this.title = this.form.title;
+                this.body = this.form.body;
+                flash('Your thread has been updated');
+            });
+
+        }
     }
 }
 

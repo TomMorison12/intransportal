@@ -110,23 +110,20 @@ class ThreadsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
-    }
 
 
 
     public function update($channel, Thread $thread)
     {
-        if(request()->has('locked'))
-        {
-            if(! auth()->user()->isAdmin()) {
-                return response('', 403);
-            }
 
-           $thread->locked ? $thread->unlock() : $thread->lock();
-        }
+        $this->authorize("update", $thread);
+
+        $thread->update(request()->validate([
+            'title' =>'required|spamfree',
+            'body' => 'required|spamfree',
+        ]));
+        
+
     }
 
     /**

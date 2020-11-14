@@ -47,7 +47,8 @@
                 <li class="dropdown flex"><a href="#" tabindex="-1" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                                           aria-expanded="false">Wiki</a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{route('wiki.index')}}">Main page</a></li>
+                    
+                        <li class="list-group-item"><a href="{{route('wiki.index')}}">Main page</a></li>
                     </ul>
 
                </li>

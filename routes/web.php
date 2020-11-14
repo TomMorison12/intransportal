@@ -16,10 +16,11 @@ $domain = parse_url('http://intransportal.test', PHP_URL_HOST);
 
 
 Route::domain('forum.'.$domain)->group(function() {
-    Route::get('/threads', 'ThreadsController@index');
+    Route::get('/threads', 'ThreadsController@index')->name('threads');
     Route::get('/threads/create', 'ThreadsController@create');
     Route::get('/threads/{channel}/{thread}', 'ThreadsController@show');
-    Route::patch('/threads/{channel}/{thread}', 'ThreadsController@update')->name('threads.update');
+    Route::post('locked-thread/{thread}', 'Api\LockedThreadsController@store')->name('locked-threads.store');
+    Route::patch('/threads/{channel}/{thread}', 'ThreadsController@update');
     Route::delete('/threads/{channel}/{thread}', 'ThreadsController@destroy');
     Route::post('/threads', 'ThreadsController@store');
     Route::get('/threads/{channel}/{thread}/replies','RepliesController@index');
@@ -47,11 +48,13 @@ Route::domain('forum.'.$domain)->group(function() {
 
 Route::domain('wiki.'.$domain)->group(function() {
     Route::get('/', 'CategoryController@index')->name('wiki.index');
-    Route::get('/{category}', 'CategoryController@show')->name('wiki.show');
-    Route::post('api/category/add', 'Api\CategoryController@store')->name('category.add');
-    Route::post('api/subcategory/add', 'Api\SubcategoryController@store')->name('category.add');
-    Route::get('api/category/{category}', 'Api\SubcategoryController@show')->name('subcategories.api');
-    Route::get('api/category/', 'Api\CategoryController@show');
+    Route::get('api/categories', 'Api\CategoryController@show');
+    Route::get('/{country}', 'CategoryController@show')->name('wiki.show');
+    Route::post('api/category/add', 'Api\CategoryController@store')->name('country.add');
+    Route::post('api/cities/add', 'Api\CitiesController@store')->name('cities.add');
+    Route::delete('api/category/delete/{country}', 'Api\CategoryController@destroy')->middleware('admin')->name('country.delete');
+    Route::get('api/cities/{country}', 'Api\CitiesController@show');
+    Route::post('photos/add', 'PhotosController@store')->name('photos.add');
 
 });
 
@@ -63,7 +66,6 @@ Route::domain($domain)->group(function() {
     Route::get('profiles/{user}/notifications', 'UserNotificationsControlller@index');
     Route::post('api/users/{user}/avatar', 'Api\UserAvatarController@store');
 
-    Route::resource('photos', 'PhotosController');
 });
 
 

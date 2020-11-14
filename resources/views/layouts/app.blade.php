@@ -34,8 +34,11 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
         .level {display: flex; align-items: center; }
+        .level-item { margin-right: 1em; }
         .flex {flex: 1;}
         [v-cloak] {display: none;}
+        .ml-a {margin-left: auto}
+        .mr-a {margin-right: auto}
     </style>
     @yield('head')
 </head>
@@ -47,8 +50,10 @@
             @yield('content')
             <flash message="{{session('flash')}}"></flash>
         </main>
+        @yield('modal')
 
     </div>
+
     <script
         src="http://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="

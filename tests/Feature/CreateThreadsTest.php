@@ -121,17 +121,59 @@ class CreateThreadsTest extends TestCase
     }
 
         function test_a_thread_can_be_updated() {
+             
+            $this->withExceptionHandling();
+
             $this->signIn();
+    
             $thread = create('App\Thread', ['user_id' => auth()->id()]);
 
-            $this->patchJson($thread->path(), [
+        
+
+            $this->patch($thread->path(), [
                 'title' => 'Changed',
                 'body' => 'Changed body.'
             ]);
 
+            
+
             $this->assertEquals('Changed', $thread->fresh()->title);
             $this->assertEquals('Changed body.', $thread->fresh()->body);
+        
         }
+
+       function test_a_thread_requires_a_title_and_body_to_be_updated() {
+        $this->signIn();
+        $thread = create('App\Thread', ['user_id' => auth()->id()]);
+
+        $this->patch($thread->path(), [
+            'title' => 'Changed',
+          
+        ])->assertSessionHasErrors(['body']);
+
+        
+        $this->patch($thread->path(), [
+            'body' => 'Changed',
+          
+        ])->assertSessionHasErrors(['title']);
+
+           
+       } 
+
+       function test_unauthorized_users_may_not_update_threads() {
+           $this->withExceptionHandling();
+        $this->signIn();
+    
+        $thread = create('App\Thread', ['user_id' => create('App\User')->id]);
+
+    
+
+        $this->patch($thread->path(), [
+            'title' => 'Changed',
+            'body' => 'Changed body.'
+        ])->assertStatus(403);
+
+       }
 
 
         public function publishThread($overrides) {

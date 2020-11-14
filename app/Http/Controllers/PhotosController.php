@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Photo;
 use Illuminate\Http\Request;
 
 class PhotosController extends Controller
@@ -34,7 +35,11 @@ class PhotosController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        request()->validate([
+            'photo' => ['required', 'image']
+        ]);
+        Photo::create(['photo_path' => request()->file('photo')->store('photos',
+            'public')]);
 
     }
 

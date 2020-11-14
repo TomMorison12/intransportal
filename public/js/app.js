@@ -1891,14 +1891,15 @@ __webpack_require__.r(__webpack_exports__);
           flash(err.response.data, 'danger');
           console.log(err);
         }).then(function (data) {
-          _this.$emit('added', _this.data);
+          _this.$emit('added', data);
 
           flash("The category has been created");
+          _this.name = '';
         });
       } else {
-        axios.post('/api/subcategory/add', {
+        axios.post('/api/cities/add', {
           name: this.name,
-          category_id: this.cid
+          country_id: this.cid
         })["catch"](function (err) {
           flash(err.response.data, 'danger');
           console.log(err);
@@ -1906,6 +1907,7 @@ __webpack_require__.r(__webpack_exports__);
           _this.$emit('added');
 
           flash("The subcategory has been created");
+          _this.name = '';
         });
       }
     }
@@ -2004,6 +2006,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2019,9 +2023,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     getData: function getData() {
-      axios.get('api/category').then(function (data) {
+      axios.get('api/categories').then(function (data) {
         this.categories = data.data;
-        console.log(this.categories);
       }.bind(this));
     }
   }
@@ -2522,17 +2525,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['country', 'cid'],
+  props: ['country', 'cid', 'slug'],
   data: function data() {
     return {
-      dataSet: null
+      dataSet: null,
+      photos: []
     };
   },
   methods: {
     refresh: function refresh() {
-      axios.get('api/category/' + this.country).then(function (response) {
-        console.log(response.data);
+      axios.get('api/cities/' + this.slug).then(function (response) {
         this.dataSet = response.data;
       }.bind(this));
     }
@@ -2641,7 +2657,12 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       repliesCount: this.thread.replies_count,
-      locked: this.thread.locked
+      locked: this.thread.locked,
+      editing: false,
+      form: {
+        title: this.thread.title,
+        body: this.thread.body
+      }
     };
   },
   methods: {
@@ -2649,6 +2670,19 @@ __webpack_require__.r(__webpack_exports__);
       this.locked = !this.locked;
       axios.patch(window.location, {
         locked: this.locked
+      });
+    },
+    update: function update() {
+      var _this = this;
+
+      axios.patch('/threads/' + this.thread.channel.slug + '/' + this.thread.slug, {
+        title: this.form.title,
+        body: this.form.body
+      }).then(function () {
+        _this.editing = false;
+        _this.title = _this.form.title;
+        _this.body = _this.form.body;
+        flash('Your thread has been updated');
       });
     }
   }
@@ -34270,48 +34304,44 @@ var render = function() {
           _c("div", { staticClass: "card" }, [
             _vm._m(0),
             _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "card-body collapse", attrs: { id: "addcat" } },
-              [
-                _c("div", { staticClass: "form-group" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.name,
-                        expression: "name"
-                      }
-                    ],
-                    staticClass: "form-control input-m",
-                    attrs: {
-                      placeholder: "Category (country) name",
-                      required: ""
-                    },
-                    domProps: { value: _vm.name },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.name = $event.target.value
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "button",
+            _c("div", { staticClass: "card-body", attrs: { id: "addcat" } }, [
+              _c("div", { staticClass: "form-group" }, [
+                _c("input", {
+                  directives: [
                     {
-                      staticClass: "btn btn-primary",
-                      attrs: { type: "button", name: "submit" },
-                      on: { click: _vm.add }
-                    },
-                    [_vm._v("Add category\n                        ")]
-                  )
-                ])
-              ]
-            )
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.name,
+                      expression: "name"
+                    }
+                  ],
+                  staticClass: "form-control input-m",
+                  attrs: {
+                    placeholder: "Category (country) name",
+                    required: ""
+                  },
+                  domProps: { value: _vm.name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.name = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { type: "button", name: "submit" },
+                    on: { click: _vm.add }
+                  },
+                  [_vm._v("Add category\n                        ")]
+                )
+              ])
+            ])
           ])
         ])
       : _vm.level === "subcat"
@@ -34457,38 +34487,42 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("add-category", {
-        staticClass: "mb-3",
-        attrs: { level: "cat" },
-        on: { added: _vm.getData }
-      }),
-      _vm._v(" "),
-      _c(
-        "table",
-        { staticClass: "table" },
-        [
-          _vm._m(0),
-          _vm._v(" "),
-          _vm._l(_vm.categories, function(category) {
-            return _c("tr", [
-              _c("td", [
-                _c("a", { attrs: { href: "/" + category.name } }, [
-                  _vm._v(_vm._s(category.name))
-                ])
-              ]),
-              _vm._v(" "),
-              _c("td", [_vm._v("6")])
-            ])
-          })
-        ],
-        2
-      )
-    ],
-    1
-  )
+  return _c("div", [
+    _vm.signedIn
+      ? _c(
+          "div",
+          [
+            _c("add-category", {
+              staticClass: "mb-3",
+              attrs: { level: "cat" },
+              on: { added: _vm.getData }
+            })
+          ],
+          1
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _c(
+      "table",
+      { staticClass: "table" },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._l(_vm.categories, function(category) {
+          return _c("tr", [
+            _c("td", [
+              _c("a", { attrs: { href: "/" + category.slug } }, [
+                _vm._v(_vm._s(category.name))
+              ])
+            ]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(category.cities_count))])
+          ])
+        })
+      ],
+      2
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -35072,19 +35106,39 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("add-category", {
-        staticClass: "mb-4",
-        attrs: { level: "subcat", country: _vm.country, cid: _vm.cid },
-        on: { added: _vm.refresh }
-      }),
+      _vm.signedIn
+        ? _c(
+            "div",
+            [
+              _c("add-category", {
+                staticClass: "mb-4",
+                attrs: { level: "subcat", country: _vm.country, cid: _vm.cid },
+                on: { added: _vm.refresh }
+              })
+            ],
+            1
+          )
+        : _vm._e(),
       _vm._v(" "),
       _vm._l(_vm.dataSet, function(city) {
         return _c("div", [
-          _c("div", { staticClass: "card mt-2" }, [
+          _c("div", { staticClass: "card mt-3" }, [
             _c("div", { staticClass: "card-header" }, [
-              _c("h4", [
-                _c("a", { attrs: { href: "#" } }, [_vm._v(_vm._s(city.name))])
+              _c("div", { staticClass: "level" }, [
+                _c("h4", { staticClass: "mr-a" }, [
+                  _c("a", { attrs: { href: "#" } }, [_vm._v(_vm._s(city.name))])
+                ]),
+                _vm._v(" "),
+                _c("a", { attrs: { href: "#" + city.name + "-modal" } }, [
+                  _vm._v("Add a transit line")
+                ])
               ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body" }, [
+              _vm._v(
+                "\n            This is where the photos would go\n        "
+              )
             ])
           ])
         ])

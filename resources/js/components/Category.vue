@@ -1,6 +1,8 @@
 <template>
     <div>
+        <div v-if="signedIn">
          <add-category level="cat" class="mb-3" @added="getData"></add-category>
+        </div>
         <table class="table">
             <tr>
                 <th><b>Country</b></th>
@@ -8,8 +10,8 @@
             </tr>
             <tr v-for="category in categories">
 
-                <td><a :href="'/' + category.name">{{category.name}}</a></td>
-                    <td>6</td>
+                <td><a :href="'/' + category.slug">{{category.name}}</a></td>
+                    <td>{{category.cities_count}}</td>
             </tr>
         </table>
     </div>
@@ -31,9 +33,8 @@ export default {
     },
     methods: {
         getData() {
-            axios.get('api/category').then(function (data) {
+            axios.get('api/categories').then(function (data) {
                 this.categories = data.data;
-                console.log(this.categories);
 
             }.bind(this));
 

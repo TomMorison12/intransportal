@@ -51,7 +51,8 @@ jui8@return mixed
      */
     public function update(User $user, Thread $thread)
     {
-        return $thread->id == $user->id;
+        return $thread->user_id == $user->id;
+        
     }
 
     /**

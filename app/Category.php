@@ -20,6 +20,10 @@ class Category extends Model
         return $this->hasMany(Subcategory::class, 'category_id');
     }
 
+    public function getCitiesCountAttribute() {
+    	return $this->cities()->count();
+    }
+
 
 
 

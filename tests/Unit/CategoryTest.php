@@ -1,37 +1,29 @@
 <?php
 
-namespace tests\Unit;
-
-use App\Category;
+namespace Tests\Unit;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use tests\TestCase;
+use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class CategoryTest extends TestCase
 {
-    use DatabaseMigrations;
-    /**
-     * A basic unit test example.
-     *
-     * @return void
-     */
+use DatabaseMigrations;
 
-    function test_a_subcategory_belongs_to_a_category() {
-        $category = create('App\Category');
-        $subcategory = create('App\Subcategory', ['category_id' => $category->id]);
-        $this->assertInstanceOf(Category::class, $subcategory->category);
-    }
+function test_it_counts_the_cities_in_countries()
+{
 
-    public function test_a_subcategory_can_be_a_city_or_a_mode() {
-        // given we have a category
-        // that can have many subcateogories
-        // the given subcategori is a polymooirphic relation that can bhe eiuther a city or a mode
+    $country = create('App\Country');
 
-        $city = create('App\City');
-        $subcategory = create('App\Subcategory', ['subcategory_type' => 'App\City', 'subcategory_id' => $city->id, 'name' => $city->name]);
-        $this->assertInstanceOf();
+    create('App\City', ['country_id' => $country->id], 6);
 
-    }
+    $this->assertEquals($country->fresh()->cities_count,  6);
+//;
+
+
 }
+
+
+}
+

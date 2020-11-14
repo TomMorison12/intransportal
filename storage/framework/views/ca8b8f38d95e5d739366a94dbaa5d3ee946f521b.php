@@ -3,30 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="level">
-                            <?php if($thread->creator->avatar_path): ?>
-                            <img src="<?php echo e(asset('/storage/'.$thread->creator->avatar_path)); ?>" width="25" height="25" class="mr-1" />
-                            <?php endif; ?>
-                            <span class="flex"><a href="<?php echo e(page_url(null, 'profiles/'.$thread->creator->name)); ?>"><?php echo e($thread->creator->name); ?></a> posted <?php echo e($thread->title); ?></span>
-                            <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('update', $thread)): ?>
-                            <form action="<?php echo e($thread->path()); ?>" method="post">
-                            <?php echo e(csrf_field()); ?>
-
-                            <?php echo e(method_field('DELETE')); ?>
-
-                            <button type="submit" class="btn btn-link">Delete</button>
-                        </form>
-                        <?php endif; ?>
-                        </div>
-                    </div>
-
-                    <div class="card-body">
-                        <?php echo nl2br(e($thread->body)); ?>
-
-                    </div>
-                </div>
+                    <?php echo $__env->make('threads._question', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                 <replies @added="repliesCount++" @remove="repliesCount--"></replies>
 
 

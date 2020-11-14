@@ -31,7 +31,7 @@ class RepliesController extends Controller
     public function store($channelId, Thread $thread, CreatePostForm $form)
     {
         if($thread->locked) {
-            return response('The thhread is locked', 422);
+            return response('The thread is locked', 422);
         }
            return $thread->addReply([
                 'body' => request('body'),
@@ -51,9 +51,11 @@ class RepliesController extends Controller
     public function update(Reply $reply) {
     $this->authorize('update', $reply);
 
-    $this->validate(request(), ['body' => 'required|spamfree']);
+    // $this->validate(request(), ['body' => 'required|spamfree']);
 
-    $reply->update(['body' => request('body')]);
+    $reply->update(request()->validate([
+        'body' => 'required|spamfree'
+    ]));
     }
 
     public function index($channelId, Thread $thread) {

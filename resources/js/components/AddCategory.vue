@@ -52,16 +52,18 @@ export default {
                     }).then(data => {
                     this.$emit('added', data);
                     flash("The category has been created");
+                    this.name = '';
                 });
 
             } else {
-                axios.post('/api/subcategory/add', {name: this.name, category_id: this.cid})
+                axios.post('/api/cities/add', {name: this.name, country_id: this.cid})
                     .catch((err) => {
                         flash(err.response.data, 'danger')
                         console.log(err)
                     }).then(data => {
                     this.$emit('added');
                     flash("The subcategory has been created");
+                    this.name = '';
                 });
 
             }
