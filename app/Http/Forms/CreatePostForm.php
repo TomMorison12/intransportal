@@ -27,13 +27,12 @@ class CreatePostForm extends FormRequest
     public function rules()
     {
         return [
-            'body' => 'required|spamfree'
+            'body' => 'required|spamfree',
         ];
     }
 
     protected function failedAuthorization()
     {
-
         throw new ThrottleException('You are reply too frequentlty. Please slow down');
     }
 }

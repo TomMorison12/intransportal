@@ -36,11 +36,10 @@ class PhotosController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-            'photo' => ['required', 'image']
+            'photo' => ['required', 'image'],
         ]);
         Photo::create(['photo_path' => request()->file('photo')->store('photos',
             'public')]);
-
     }
 
     /**

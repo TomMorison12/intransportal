@@ -8,28 +8,18 @@ class Category extends Model
 {
     protected $fillable = ['name'];
 
-
-
     public function getRouteKeyName()
     {
         return 'name';
-
     }
+
     public function subcategory()
     {
         return $this->hasMany(Subcategory::class, 'category_id');
     }
 
-    public function getCitiesCountAttribute() {
-    	return $this->cities()->count();
+    public function getCitiesCountAttribute()
+    {
+        return $this->cities()->count();
     }
-
-
-
-
-
-
-
-
-
 }

@@ -8,16 +8,17 @@ use Illuminate\Support\Str;
 
 $factory->define(Thread::class, function (Faker $faker) {
     $title = $faker->sentence;
+
     return [
-        'user_id' => function() {
+        'user_id' => function () {
             return factory('App\User')->create()->id;
         },
-        'channel_id' => function() {
+        'channel_id' => function () {
             return factory('App\Channel')->create()->id;
         },
         'title' => $title,
         'body' => $faker->paragraph,
         'slug' => Str::slug($title),
-        'locked' => false
+        'locked' => false,
     ];
 });

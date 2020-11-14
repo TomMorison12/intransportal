@@ -9,17 +9,20 @@ use Illuminate\Support\Facades\Auth;
 
 class FavoritesController extends Controller
 {
-    public function __construct() {
+    public function __construct()
+    {
         $this->middleware('auth');
-}
-    public function store(Reply $reply) {
+    }
 
+    public function store(Reply $reply)
+    {
         $reply->favorite();
 
         return back();
     }
 
-    public function destroy(Reply $reply) {
-    	$reply->unfavorite();
+    public function destroy(Reply $reply)
+    {
+        $reply->unfavorite();
     }
 }

@@ -6,13 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Channel extends Model
 {
-	protected $fillable = ['name', 'slug'];
-    public function getRouteKeyName() {
-        return 'slug';
+    protected $fillable = ['name', 'slug'];
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 
-    public function thread() {
+    public function thread()
+    {
         return $this->hasMany(Thread::class);
     }
 }

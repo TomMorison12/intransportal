@@ -3,13 +3,14 @@
 namespace tests\Unit;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use tests\TestCase;
 
 class PhotoTest extends TestCase
 {
     use DatabaseMigrations;
+
     /**
      * A basic unit test example.
      *

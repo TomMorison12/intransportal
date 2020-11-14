@@ -13,7 +13,6 @@ class Country extends Model
     public function getRouteKeyName()
     {
         return 'slug';
-
     }
 
     public function cities()
@@ -25,6 +24,4 @@ class Country extends Model
     {
         return $this->cities()->count();
     }
-
-
 }

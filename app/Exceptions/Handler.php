@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Exceptions;
+
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Validation\ValidationException;
@@ -23,6 +25,7 @@ class Handler extends ExceptionHandler
         'password',
         'password_confirmation',
     ];
+
     /**
      * Report or log an exception.
      *
@@ -33,6 +36,7 @@ class Handler extends ExceptionHandler
     {
         parent::report($exception);
     }
+
     /**
      * Render an exception into an HTTP response.
      *
@@ -41,16 +45,17 @@ class Handler extends ExceptionHandler
      * @return \Illuminate\Http\Response
      */
     public function render($request, Exception $exception)
-        {
-        if($exception instanceof ValidationException)
+    {
+        if ($exception instanceof ValidationException) {
             if ($request->expectsJson()) {
                 return response('Sorry, validation failed.', 422);
             }
-
+        }
 
         if ($exception instanceof ThrottleException) {
             return response($exception->getMessage(), 429);
         }
+
         return parent::render($request, $exception);
     }
 }

@@ -2,26 +2,31 @@
 
 namespace App\Filters;
 
-abstract class Filter {
+abstract class Filter
+{
     protected $filters = [];
-    function __construct(\Illuminate\Http\Request $request) {
+
+    public function __construct(\Illuminate\Http\Request $request)
+    {
         $this->request = $request;
     }
+
     public function apply($builder)
     {
         $this->builder = $builder;
 
         $this->getFilters()
-            ->filter(function($filter) {
+            ->filter(function ($filter) {
                 return method_exists($this, $filter);
-            })->each(function($filter, $value) {
+            })->each(function ($filter, $value) {
                 $this->$filter($value);
             });
 
         return $this->builder;
     }
 
-    public function getFilters() {
+    public function getFilters()
+    {
         return collect($this->request->only($this->filters))->flip();
     }
 

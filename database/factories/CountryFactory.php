@@ -7,9 +7,10 @@ use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
 $factory->define(Country::class, function (Faker $faker) {
-   $name = $faker->word;
+    $name = $faker->word;
+
     return [
         'name' => $name,
-        'slug' => Str::slug($name)
+        'slug' => Str::slug($name),
     ];
 });

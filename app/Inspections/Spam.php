@@ -2,23 +2,22 @@
 
 namespace App\Inspections;
 
-
-Class Spam {
+class Spam
+{
     /** *
      * @param $body
      * @return bool
      * @throws \Exception
      */
-        protected $inspections = [
+    protected $inspections = [
             InvalidKeywords::class,
-            KeyHeldDown::class
+            KeyHeldDown::class,
         ];
-        public function detect($body)
-        {
-            foreach ($this->inspections as $inspection) {
-                app($inspection)->detect($body);
-            }
 
+    public function detect($body)
+    {
+        foreach ($this->inspections as $inspection) {
+            app($inspection)->detect($body);
         }
-
+    }
 }

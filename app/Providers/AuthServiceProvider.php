@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -15,9 +15,8 @@ class AuthServiceProvider extends ServiceProvider
     protected $policies = [
          'App\Thread' => 'App\Policies\ThreadPolicy',
          'App\Reply' => 'App\Policies\ReplyPolicy',
-         'App\User' => 'App\Policies\UserPolicy'
+         'App\User' => 'App\Policies\UserPolicy',
         ];
-
 
     /**
      * Register any authentication / authorization services.
@@ -28,9 +27,10 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::before(function($user) {
-            if($user->name === 'John Doe')
+        Gate::before(function ($user) {
+            if ($user->name === 'John Doe') {
                 return true;
+            }
         });
     }
 }

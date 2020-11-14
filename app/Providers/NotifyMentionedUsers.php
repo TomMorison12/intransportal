@@ -6,7 +6,6 @@ use App\Notifications\YouWereMentioned;
 use App\Providers\App\Events\ThreadHasNewReply;
 use App\User;
 
-
 class NotifyMentionedUsers
 {
     /**
@@ -32,6 +31,5 @@ class NotifyMentionedUsers
             ->each(function ($user) use ($event) {
                 $user->notify(new YouWereMentioned($event->reply));
             });
-
     }
 }

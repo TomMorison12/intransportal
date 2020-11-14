@@ -14,13 +14,15 @@ class Reply extends Model
     protected $with = ['owner', 'favorites'];
 
     protected $appends = ['favoritesCount', 'isFavorited', 'isBest'];
-    protected static function boot() {
+
+    protected static function boot()
+    {
         parent::boot();
-        static::created(function($reply) {
+        static::created(function ($reply) {
             $reply->thread->increment('replies_count');
         });
 
-        static::deleted(function($reply) {
+        static::deleted(function ($reply) {
             $reply->thread->decrement('replies_count');
         });
     }
@@ -30,37 +32,40 @@ class Reply extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function thread() {
+    public function thread()
+    {
         return $this->belongsTo(Thread::class);
     }
 
     public function path()
     {
-        return $this->thread->path(). '#reply-'.$this->id;
+        return $this->thread->path().'#reply-'.$this->id;
     }
 
-    public function wasJustPublished() {
+    public function wasJustPublished()
+    {
         return $this->created_at->gt(Carbon::now()->subMinute());
     }
 
-    public function mentionedUsers() {
+    public function mentionedUsers()
+    {
         preg_match_all('/@([\w\-]+)/', $this->body, $matches);
 
         return $matches[1];
-
     }
 
-    public function setBodyAttribute($body) {
-       $this->attributes['body'] = preg_replace('/@([\w\-]+)/', '<a href="'.page_url(null, "/profiles/$1").'">$0</a>', $body);
-
+    public function setBodyAttribute($body)
+    {
+        $this->attributes['body'] = preg_replace('/@([\w\-]+)/', '<a href="'.page_url(null, '/profiles/$1').'">$0</a>', $body);
     }
 
-    public function isBest() {
+    public function isBest()
+    {
         return $this->thread->best_reply_id == $this->id;
     }
 
-    public function getIsBestAttribute() {
+    public function getIsBestAttribute()
+    {
         return $this->isBest();
     }
-
 }

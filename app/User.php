@@ -3,10 +3,9 @@
 namespace App;
 
 use Carbon\Carbon;
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -18,7 +17,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'avatar_path'
+        'name', 'email', 'password', 'avatar_path',
     ];
 
     /**
@@ -27,7 +26,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token', 'email'
+        'password', 'remember_token', 'email',
     ];
 
     /**
@@ -39,25 +38,31 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    public function getRouteKeyName() {
+    public function getRouteKeyName()
+    {
         return 'name';
     }
 
-    public function threads() {
+    public function threads()
+    {
         return $this->hasMany(Thread::class)->latest();
     }
-    public function latestReply() {
+
+    public function latestReply()
+    {
         return $this->hasOne(Reply::class)->latest();
     }
 
-    public function activity() {
+    public function activity()
+    {
         return $this->hasMany(Activity::class);
     }
 
     public function visitedThreadCacheKey($thread)
     {
-        return sprintf("users.%s.visits.%s", $this->id, $thread->id);
+        return sprintf('users.%s.visits.%s', $this->id, $thread->id);
     }
+
     public function read($thread)
     {
         cache()->forever(
@@ -66,8 +71,8 @@ class User extends Authenticatable implements MustVerifyEmail
         );
     }
 
-    public function isAdmin() {
+    public function isAdmin()
+    {
         return in_array($this->name, ['John Doe']);
     }
-
 }

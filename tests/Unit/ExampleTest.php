@@ -2,8 +2,8 @@
 
 namespace tests\Unit;
 
-use tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use tests\TestCase;
 
 class ExampleTest extends TestCase
 {

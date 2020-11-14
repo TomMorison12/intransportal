@@ -4,7 +4,6 @@ namespace App\Listener;
 
 use App\Providers\App\Events\ThreadHasNewReply;
 
-
 class NotifyThreadSubscribers
 {
     /**
@@ -16,7 +15,6 @@ class NotifyThreadSubscribers
     {
         //
     }
-
 
     public function handle(ThreadHasNewReply $event)
     {

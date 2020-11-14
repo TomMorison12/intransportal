@@ -17,19 +17,21 @@ class ReplyPolicy
      * @param Reply $reply
      * @return void
      */
- public function update(User $user, Reply $reply) {
+    public function update(User $user, Reply $reply)
+    {
+        return $reply->user_id == $user->id;
+    }
 
-     return $reply->user_id == $user->id;
+    public function create(User $user)
+    {
+        $latestReply = $user->fresh()->latestReply;
 
+        if (! $latestReply) {
+            return true;
+        }
 
- }
+        return ! $latestReply->wasJustPublished();
 
- public function create(User $user) {
-    $latestReply = $user->fresh()->latestReply;
-
-      if(!$latestReply) return true;
-return ! $latestReply->wasJustPublished();
-
-     return false;
- }
+        return false;
+    }
 }

@@ -18,6 +18,7 @@ class UserPolicy
     {
         //
     }
+
     public function update(User $user, User $signedInUser)
     {
         return $signedInUser->id === $user->id;

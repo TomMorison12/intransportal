@@ -3,31 +3,31 @@
 namespace tests\Feature;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class AddAvatarTest extends TestCase
 {
     use DatabaseMigrations;
 
-    public function test_only_members_can_add_avatars() {
-
+    public function test_only_members_can_add_avatars()
+    {
         $this->json('POST', page_url(null, '/api/users/1/avatar'))->assertStatus(401);
-
-
     }
 
-    function test_a_valid_avatar_must_be_provided() {
+    public function test_a_valid_avatar_must_be_provided()
+    {
         $this->withExceptionHandling()->signIn();
 
         $this->json('POST', page_url(null, '/api/users/'.auth()->id().'/avatar'),
             ['avatar' => 'not-an-image'])->assertStatus(422);
     }
 
-    function test_a_user_may_add_an_avatar_to_their_profile() {
+    public function test_a_user_may_add_an_avatar_to_their_profile()
+    {
         $this->signIn();
         Storage::fake('public');
 
@@ -36,6 +36,5 @@ class AddAvatarTest extends TestCase
 
         $this->assertEquals('avatars/'.$file->hashname(), auth()->user()->avatar_path);
         Storage::disk('public')->assertExists('avatars/'.$file->hashname());
-
     }
 }

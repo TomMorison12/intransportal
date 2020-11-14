@@ -4,7 +4,6 @@ namespace App\Providers\App\Events;
 
 use Illuminate\Queue\SerializesModels;
 
-
 class ThreadHasNewReply
 {
     use SerializesModels;
@@ -22,5 +21,4 @@ class ThreadHasNewReply
         $this->thread = $thread;
         $this->reply = $reply;
     }
-
 }

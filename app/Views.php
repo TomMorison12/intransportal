@@ -1,29 +1,30 @@
 <?php
 
-
 namespace App;
-
 
 use Illuminate\Support\Facades\Redis;
 
 class Views
 {
     protected $thread;
+
     public function __construct($thread)
     {
         $this->thread = $thread;
     }
 
-    public function count() {
+    public function count()
+    {
         return Redis::get($this->cacheKey()) ?? 0;
-
     }
 
-    public function reset() {
+    public function reset()
+    {
         Redis::del($this->cacheKey());
     }
 
-    public function record() {
+    public function record()
+    {
         Redis::incr($this->cacheKey());
     }
 
@@ -31,5 +32,4 @@ class Views
     {
         return "threads.{$this->thread->id}.visits";
     }
-
 }
