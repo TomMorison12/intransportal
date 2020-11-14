@@ -44,18 +44,17 @@
             ],
             "Dotenv\\Repository\\": [
                 "vendor/vlucas/phpdotenv/"
-            ]
+            ],
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
         },
         "files": [
             "tests/utilities/functions.php"
         ],
         "classmap": [
-            "database/seeds",
-            "database/factories",
             "app/"
         ]
     },
-
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/",
