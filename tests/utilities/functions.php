@@ -1,14 +1,18 @@
-
 <?php
 
-function create($class, $attributes = [], $times = null)
+function create($class, $attributes = [], $times = 1)
 {
-    return factory($class, $times)->create($attributes);
+     if($times > 1)
+        return app($class)->factory()->count($times)->create($attributes);
+    return app($class)->factory()->create($attributes);
 }
 
-function make($class, $attributes = [], $times = null)
+function make($class, $attributes = [], $times = 1)
 {
-    return factory($class, $times)->make($attributes);
+    if($times > 1)
+
+        return app($class)->factory()->count($times)->make($attributes);
+    return app($class)->factory()->make($attributes);
 }
 
 function page_url($subdomain, $path)

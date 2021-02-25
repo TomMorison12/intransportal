@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Country;
+use App\Category;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -16,25 +17,17 @@ class CategoryController extends Controller
 
     public function show()
     {
-        return Country::orderBy('name', 'asc')->get();
+        return Category::orderBy('name', 'asc')->get();
     }
 
-    public function store()
-    {
-        $this->validate(request(), [
-            'name' => 'required',
+    public function store() {
+
+       request()->validate([
+            'name' => 'required'
         ]);
-        try {
-            Country::create(['name' => request('name'), 'slug' => Str::slug(request('name'))]);
-        } catch (\Exception $e) {
-            throw new \Exception('The category could not be created');
-        }
 
-        return response('Category created', 201);
-    }
+       Category::create(['name' => request('name'), 'slug' => Str::slug(request('name'))]);
 
-    public function destroy(Country $country)
-    {
-        $country->delete();
+        return response('country created', 201);
     }
 }

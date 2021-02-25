@@ -15,9 +15,17 @@ class CategoryTest extends TestCase
     {
         $country = create('App\Country');
 
-        create('App\City', ['country_id' => $country->id], 6);
+        create('App\City', ['country_id' => $country[0]->id], 6);
 
-        $this->assertEquals($country->fresh()->cities_count, 6);
+        $this->assertEquals($country->fresh()[0]->cities_count, 6);
         //;
     }
+//
+//    function test_a_mode_belomgs_to_a_city() {
+//        // given we have a city
+//        // and we have a mode, line, or station
+//        // that category can be;ong to that city.
+//
+//
+//    }
 }

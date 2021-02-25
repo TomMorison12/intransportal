@@ -1,18 +1,17 @@
 <?php
 
-namespace Database\Factories\App;
+namespace Database\Factories;
 
-use App\Model;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ChannelFactory extends Factory
+class SubcategoryFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = \App\Channel::class;
+    protected $model = \App\Subcategory::class;
 
     /**
      * Define the model's default state.
@@ -21,12 +20,9 @@ class ChannelFactory extends Factory
      */
     public function definition()
     {
-        $name = $this->faker->word;
-
         return [
-            'name' => $name,
-            'slug' => $name,
-
+            'category_id' => 1,
+            'name' => $this->faker->word,
         ];
     }
 }

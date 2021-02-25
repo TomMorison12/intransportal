@@ -19,7 +19,7 @@ Vue.component('paginator', require('./components/Paginator.vue').default);
 Vue.component('user-notifications', require('./components/UserNotifications.vue').default);
 Vue.component('avatar-form', require('./components/AvatarForm.vue').default);
 Vue.component('modal', require('./components/Modal.vue').default);
-Vue.component('add-category', require('./components/AddCategory.vue').default);
+
 Vue.component('subcategory', require('./components/Subcategory.vue').default);
 Vue.component('category', require('./components/Category.vue').default);
 const app = new Vue({

@@ -47408,7 +47408,6 @@ Vue.component('paginator', __webpack_require__(/*! ./components/Paginator.vue */
 Vue.component('user-notifications', __webpack_require__(/*! ./components/UserNotifications.vue */ "./resources/js/components/UserNotifications.vue")["default"]);
 Vue.component('avatar-form', __webpack_require__(/*! ./components/AvatarForm.vue */ "./resources/js/components/AvatarForm.vue")["default"]);
 Vue.component('modal', __webpack_require__(/*! ./components/Modal.vue */ "./resources/js/components/Modal.vue")["default"]);
-Vue.component('add-category', __webpack_require__(/*! ./components/AddCategory.vue */ "./resources/js/components/AddCategory.vue")["default"]);
 Vue.component('subcategory', __webpack_require__(/*! ./components/Subcategory.vue */ "./resources/js/components/Subcategory.vue")["default"]);
 Vue.component('category', __webpack_require__(/*! ./components/Category.vue */ "./resources/js/components/Category.vue")["default"]);
 var app = new Vue({

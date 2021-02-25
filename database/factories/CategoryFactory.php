@@ -1,18 +1,20 @@
 <?php
 
-namespace Database\Factories\App;
+namespace Database\Factories;
 
-use App\Mode;
+use App\Category;
+
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
-class ModeFactory extends Factory
+class CategoryFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Mode::class;
+    protected $model = Category::class;
 
     /**
      * Define the model's default state.
@@ -21,8 +23,12 @@ class ModeFactory extends Factory
      */
     public function definition()
     {
+        $name = $this->faker->word;
+
         return [
-            //
+
+            'name' => $name,
+            'slug' => Str::slug($name),
         ];
     }
 }

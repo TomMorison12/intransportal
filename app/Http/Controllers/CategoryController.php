@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Country;
 use Illuminate\Http\Request;
 
@@ -9,18 +10,19 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Country::orderBy('name', 'asc')->get();
+        $categories = Category::orderBy('name', 'asc')->get();
 
         return view('categories.index', ['categories' => $categories]);
     }
 
-    public function show(Country $country)
+    public function show(Category $category)
     {
         return view('categories.list')->with([
-            'country' => $country->name,
-            'slug' => $country->slug,
-            'cid' => $country->id,
-            'cities' => $country->cities()->orderBy('name')->get(),
+            'country' => $category->name,
+            'slug' => $category->slug,
+            'cid' => $category->id,
+            'cities' => $category->cities()->orderBy('name')->get(),
+
         ]);
     }
 

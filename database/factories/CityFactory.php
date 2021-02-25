@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Factories\App;
+namespace Database\Factories;
 
 use App\City;
 use App\Model;

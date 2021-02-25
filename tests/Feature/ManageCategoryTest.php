@@ -16,9 +16,9 @@ class ManageCategoryTest extends TestCase
     public function test_a_member_can_add_a_category()
     {
         $this->signIn();
-        $category = make('App\Country');
+        $category = make('App\Category');
 
-        $this->json('POST', route('country.add'), $category->toArray())->assertStatus(201);
+        $this->json('POST', route('country.add'), ['name' => $category->name])->assertStatus(201);
     }
 
     public function test_non_verified_members_may_not_add_new_categories()
