@@ -18,7 +18,7 @@
         "guzzlehttp/guzzle": "*",
         "kitetail/zttp": "*",
         "kreait/firebase-php": "^4.35",
-        "laravel/framework": "8.14",
+        "laravel/framework": "8.40.0",
         "laravel/scout": "^8.4",
         "laravel/tinker": "*",
         "laravel/ui": "^3.1",
